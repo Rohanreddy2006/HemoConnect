@@ -26,7 +26,6 @@
   - [Prerequisites](#prerequisites)
   - [Configuration](#configuration)
   - [Building the Project](#building-the-project)
-- [Development Roadmap](#-development-roadmap)
 - [License](#-license)
 
 ---
@@ -170,20 +169,6 @@ git clone <repository-url>
 cd HEMOCONNECT
 mvn clean compile
 ```
-
----
-
-## 🗺️ Development Roadmap
-
-- [x] **Milestone 1**: Spring Boot 3 & Java 21 Scaffolding and Build Setup
-- [x] **Milestone 2**: Core Clinical Domain Entities (`Donor`, `BloodRequest`, `BloodBank`, etc.)
-- [x] **Milestone 3**: ABO/Rh Immunohematology Matching Engine & Defensive Input Sanitization
-- [x] **Milestone 4**: Donor & Request Management Services with Centralized Exception Handling
-- [ ] **Milestone 5**: REST API Web Controllers & Request Routing
-- [ ] **Milestone 6**: Firebase Cloud Firestore & Dual-Mode Local Datastore Persistence
-- [ ] **Milestone 7**: External Registry Web Scraper Pipeline
-- [ ] **Milestone 8**: Responsive Single-Page Application (SPA) Frontend
-- [ ] **Milestone 9**: Containerization & Production Cloud Deployment
 
 ---
 
