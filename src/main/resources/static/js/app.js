@@ -403,9 +403,9 @@ const AppEngine = {
         document.querySelectorAll("[data-tab]").forEach(el => {
             const current = el.getAttribute("data-tab");
             if (current === tabName) {
-                el.className = "flex items-center gap-3 px-4 py-3 rounded-xl text-red-600 border-l-4 border-red-600 bg-red-50 font-bold transition-all duration-300";
+                el.className = "flex items-center gap-3 px-4 py-3 rounded-lg text-primary border-l-4 border-primary bg-primary/10 font-bold transition-all duration-300";
             } else {
-                el.className = "flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 font-semibold hover:bg-red-50/70 hover:text-red-600 transition-all duration-300";
+                el.className = "flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant font-medium hover:bg-white/5 hover:text-primary transition-all duration-300";
             }
         });
 
@@ -432,15 +432,15 @@ const AppEngine = {
                 profileContainer.innerHTML = `
                     <div class="flex items-center gap-3">
                         <div class="text-right">
-                            <p class="text-sm font-bold text-slate-900">${user.displayName || user.email}</p>
-                            <p class="text-[10px] text-red-600 font-jetbrainsMono font-bold uppercase">${role} NODE</p>
+                            <p class="text-sm font-bold text-white">${user.displayName || user.email}</p>
+                            <p class="text-xs text-primary font-jetbrainsMono">${role} NODE</p>
                         </div>
-                        <button onclick="AuthEngine.signOut()" class="text-xs bg-red-50 text-slate-800 border border-red-200 px-3 py-1.5 rounded-lg hover:bg-red-600 hover:text-white transition-all font-semibold">Sign Out</button>
+                        <button onclick="AuthEngine.signOut()" class="text-xs bg-white/5 border border-white/10 px-3 py-1.5 rounded hover:text-primary transition-colors">Sign Out</button>
                     </div>
                 `;
             } else {
                 profileContainer.innerHTML = `
-                    <button onclick="AppEngine.showLoginGate()" class="bg-red-600 text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-red-700 transition-all shadow-md shadow-red-600/30">
+                    <button onclick="AppEngine.showLoginGate()" class="bg-primary/20 border border-primary/30 text-primary text-xs font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-white transition-all">
                         Node Authentication
                     </button>
                 `;
@@ -501,35 +501,20 @@ const AppEngine = {
         }
 
         container.innerHTML = `
-            <div class="space-y-8 view-section max-w-6xl mx-auto pb-10">
-                <!-- Hero Banner Block (Vibrant Red Theme) -->
-                <div class="relative rounded-3xl overflow-hidden glass-card p-6 md:p-10 flex flex-col lg:flex-row gap-8 items-center bg-white shadow-xl border border-red-100">
-                    <div class="w-full lg:w-1/2 flex justify-center items-center">
-                        <div class="relative w-full max-w-md aspect-[16/10] rounded-2xl overflow-hidden">
-                            <img src="images/blood_donation_scene.png" alt="Blood Donation Network" class="w-full h-full object-contain" />
-                        </div>
+            <div class="space-y-8 view-section font-jetbrainsMono text-white max-w-6xl mx-auto pb-10">
+                <!-- Hero Banner Block -->
+                <div class="relative rounded-2xl overflow-hidden glass-card border border-white/10 p-8 flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-1 space-y-4">
+                        <span class="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-[10px] font-bold font-jetbrainsMono tracking-widest uppercase">Protocol Status: ACTIVE</span>
+                        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                            HemoConnect: Vigilant Blood Network
+                        </h1>
+                        <p class="text-xs text-on-surface-variant/80 leading-relaxed font-sans">
+                            HemoConnect is a state-of-the-art emergency blood matching and registry platform. By bridging the gap between local blood banks, voluntary donor registries, and clinical networks, HemoConnect ensures that critical blood matches are executed in real-time under extreme biometric filters.
+                        </p>
                     </div>
-                    <div class="flex-1 space-y-5 text-left">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200 text-red-600 text-[11px] font-bold font-jetbrainsMono tracking-wider uppercase">
-                            <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
-                            Live Precision Network: ACTIVE
-                        </div>
-                        <div>
-                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none">
-                                Blood<br/><span class="text-red-600 font-black">Donation</span>
-                            </h1>
-                            <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed mt-3 max-w-xl">
-                                HemoConnect bridges voluntary donors, clinical blood banks, and 178+ verified Hyderabad hospitals with real-time biometric matching and emergency clinical dispatch.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap items-center gap-4 pt-1">
-                            <button onclick="AppEngine.switchTab('donor-match')" class="px-8 py-3.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold rounded-full hover:scale-105 active:scale-95 transition-all shadow-lg shadow-red-600/35 text-xs tracking-wider uppercase flex items-center gap-2">
-                                <span class="material-symbols-outlined text-sm">biotech</span> Find Donor Match
-                            </button>
-                            <button onclick="AppEngine.switchTab('hospitals')" class="px-6 py-3.5 bg-red-50 text-red-700 border border-red-200 font-bold rounded-full hover:bg-red-100 transition-all text-xs flex items-center gap-2">
-                                <span class="material-symbols-outlined text-sm">local_hospital</span> 178 Hospitals
-                            </button>
-                        </div>
+                    <div class="w-full md:w-[350px] aspect-[16/9] rounded-xl overflow-hidden border border-white/10 relative shadow-2xl">
+                        <img src="images/blood_donation_banner.png" alt="HemoConnect Mission" class="w-full h-full object-cover" />
                     </div>
                 </div>
 
@@ -537,43 +522,43 @@ const AppEngine = {
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <!-- Importance & Why Donate Cards -->
                     <div class="space-y-6">
-                        <div class="glass-card rounded-2xl p-6 border border-slate-200 space-y-4 hover:border-red-500/50 transition-colors shadow-sm">
-                            <h3 class="text-base font-bold text-red-600 flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
-                                <span class="material-symbols-outlined text-red-600">shield</span>
+                        <div class="glass-card rounded-2xl p-6 border border-white/5 space-y-4 hover:border-primary/30 transition-colors">
+                            <h3 class="text-base font-bold text-primary flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-primary">shield</span>
                                 Importance of the Platform
                             </h3>
-                            <ul class="space-y-2.5 text-xs text-slate-700 font-medium leading-relaxed list-disc list-inside font-sans">
-                                <li><strong class="text-slate-900 font-bold">Real-time Scraper:</strong> Directly queries the live voluntary donor registry without redirects.</li>
-                                <li><strong class="text-slate-900 font-bold">Biometric Validation:</strong> Enforces medical eligibility gap checks before displaying donors.</li>
-                                <li><strong class="text-slate-900 font-bold">Smart Radar Proximity:</strong> Uses Levenshtein location matching and geolocation to trace nearby matches.</li>
-                                <li><strong class="text-slate-900 font-bold">Secure Node Access:</strong> Access gates restrict data to authorized medical and citizen nodes.</li>
+                            <ul class="space-y-2.5 text-xs text-on-surface-variant/80 leading-relaxed list-disc list-inside font-sans">
+                                <li><strong>Real-time Scraper:</strong> Directly queries the live voluntary donor registry without redirects.</li>
+                                <li><strong>Biometric Validation:</strong> Enforces medical eligibility gap checks before displaying donors.</li>
+                                <li><strong>Smart Radar Proximity:</strong> Uses Levenshtein location matching and geolocation to trace nearby matches.</li>
+                                <li><strong>Secure Node Access:</strong> Access gates restrict data to authorized medical and citizen nodes.</li>
                             </ul>
                         </div>
 
-                        <div class="glass-card rounded-2xl p-6 border border-slate-200 space-y-4 hover:border-emerald-500/50 transition-colors shadow-sm">
-                            <h3 class="text-base font-bold text-emerald-700 flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
-                                <span class="material-symbols-outlined text-emerald-600">favorite</span>
+                        <div class="glass-card rounded-2xl p-6 border border-white/5 space-y-4 hover:border-success-cyan/30 transition-colors">
+                            <h3 class="text-base font-bold text-success-cyan flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-success-cyan">favorite</span>
                                 Why Donate Blood?
                             </h3>
-                            <ul class="space-y-2.5 text-xs text-slate-700 font-medium leading-relaxed list-disc list-inside font-sans">
-                                <li><strong class="text-slate-900 font-bold">Save Lives:</strong> A single donation can save up to three lives in emergency clinical wards.</li>
-                                <li><strong class="text-slate-900 font-bold">Cellular Renewal:</strong> Stimulates your bone marrow to produce fresh, new red blood cells.</li>
-                                <li><strong class="text-slate-900 font-bold">Cardiovascular Health:</strong> Helps maintain healthy iron levels, reducing risk of vascular blockages.</li>
-                                <li><strong class="text-slate-900 font-bold">Free Health Screening:</strong> Each donation includes a pulse, blood pressure, and hemoglobin check.</li>
+                            <ul class="space-y-2.5 text-xs text-on-surface-variant/80 leading-relaxed list-disc list-inside font-sans">
+                                <li><strong>Save Lives:</strong> A single donation can save up to three lives in emergency clinical wards.</li>
+                                <li><strong>Cellular Renewal:</strong> Stimulates your bone marrow to produce fresh, new red blood cells.</li>
+                                <li><strong>Cardiovascular Health:</strong> Helps maintain healthy iron levels, reducing risk of vascular blockages.</li>
+                                <li><strong>Free Health Screening:</strong> Each donation includes a pulse, blood pressure, and hemoglobin check.</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Points to Remember & Badges -->
                     <div class="space-y-6">
-                        <div class="glass-card rounded-2xl p-6 border border-slate-200 space-y-4 hover:border-amber-500/50 transition-colors shadow-sm">
-                            <h3 class="text-base font-bold text-amber-700 flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
-                                <span class="material-symbols-outlined text-amber-600">rule</span>
+                        <div class="glass-card rounded-2xl p-6 border border-white/5 space-y-4 hover:border-orange-500/30 transition-colors">
+                            <h3 class="text-base font-bold text-orange-400 flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
+                                <span class="material-symbols-outlined text-orange-400">rule</span>
                                 Guidelines: Points to Remember
                             </h3>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans text-slate-700 font-medium leading-relaxed">
-                                <div class="space-y-2 border-r border-slate-200 pr-4">
-                                    <p class="font-bold text-slate-900 uppercase font-jetbrainsMono text-[10px] tracking-wider">Before You Go:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[11px] font-sans text-on-surface-variant/80 leading-relaxed">
+                                <div class="space-y-2 border-r border-white/5 pr-4">
+                                    <p class="font-bold text-white uppercase font-jetbrainsMono text-[9px] tracking-wider">Before You Go:</p>
                                     <ul class="list-disc list-inside space-y-1">
                                         <li>Age: Must be 18–65 years old.</li>
                                         <li>Weight: Minimum 50 kg (110 lbs).</li>
@@ -582,10 +567,10 @@ const AppEngine = {
                                     </ul>
                                 </div>
                                 <div class="space-y-2 pl-2">
-                                    <p class="font-bold text-slate-900 uppercase font-jetbrainsMono text-[10px] tracking-wider">Biological Gaps:</p>
+                                    <p class="font-bold text-white uppercase font-jetbrainsMono text-[9px] tracking-wider">Biological Gaps:</p>
                                     <ul class="list-disc list-inside space-y-1">
-                                        <li><strong class="text-slate-900 font-bold">Men:</strong> Minimum 90 days gap since last.</li>
-                                        <li><strong class="text-slate-900 font-bold">Women:</strong> Minimum 120 days gap since last.</li>
+                                        <li><strong>Men:</strong> Minimum 90 days gap since last.</li>
+                                        <li><strong>Women:</strong> Minimum 120 days gap since last.</li>
                                         <li>Hydrate: Drink 500ml water before.</li>
                                     </ul>
                                 </div>
@@ -593,21 +578,21 @@ const AppEngine = {
                         </div>
 
                         <!-- Badges & Honors Card -->
-                        <div class="glass-card rounded-2xl overflow-hidden border border-slate-200 flex flex-col md:flex-row hover:border-indigo-500/50 transition-colors shadow-sm">
+                        <div class="glass-card rounded-2xl overflow-hidden border border-white/5 flex flex-col md:flex-row hover:border-purple-500/30 transition-colors">
                             <div class="p-6 flex-1 space-y-3">
-                                <h3 class="text-base font-bold text-indigo-700 flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
-                                    <span class="material-symbols-outlined text-indigo-600">workspace_premium</span>
+                                <h3 class="text-base font-bold text-purple-400 flex items-center gap-2 font-jetbrainsMono uppercase tracking-wider">
+                                    <span class="material-symbols-outlined text-purple-400">workspace_premium</span>
                                     Honor Ranks & Badges
                                 </h3>
-                                <div class="space-y-2 text-xs font-jetbrainsMono">
-                                    <div class="flex justify-between border-b border-slate-100 pb-1.5"><span class="text-indigo-600 font-bold">Newbie</span> <span class="text-slate-600 font-semibold">0 Donations</span></div>
-                                    <div class="flex justify-between border-b border-slate-100 pb-1.5"><span class="text-amber-700 font-bold">Bronze Lifesaver</span> <span class="text-slate-600 font-semibold">1–2 Donations</span></div>
-                                    <div class="flex justify-between border-b border-slate-100 pb-1.5"><span class="text-slate-700 font-bold">Silver Hero</span> <span class="text-slate-600 font-semibold">3–5 Donations</span></div>
-                                    <div class="flex justify-between border-b border-slate-100 pb-1.5"><span class="text-yellow-600 font-bold">Gold Guardian</span> <span class="text-slate-600 font-semibold">6–9 Donations</span></div>
-                                    <div class="flex justify-between"><span class="text-cyan-700 font-bold">Platinum Savior</span> <span class="text-slate-600 font-semibold">10+ Donations</span></div>
+                                <div class="space-y-2 text-[11px] font-jetbrainsMono">
+                                    <div class="flex justify-between border-b border-white/5 pb-1"><span class="text-purple-300 font-bold">Newbie</span> <span class="text-on-surface-variant">0 Donations</span></div>
+                                    <div class="flex justify-between border-b border-white/5 pb-1"><span class="text-amber-600 font-bold">Bronze Lifesaver</span> <span class="text-on-surface-variant">1–2 Donations</span></div>
+                                    <div class="flex justify-between border-b border-white/5 pb-1"><span class="text-slate-400 font-bold">Silver Hero</span> <span class="text-on-surface-variant">3–5 Donations</span></div>
+                                    <div class="flex justify-between border-b border-white/5 pb-1"><span class="text-yellow-400 font-bold">Gold Guardian</span> <span class="text-on-surface-variant">6–9 Donations</span></div>
+                                    <div class="flex justify-between"><span class="text-cyan-400 font-bold animate-pulse">Platinum Savior</span> <span class="text-on-surface-variant">10+ Donations</span></div>
                                 </div>
                             </div>
-                            <div class="w-full md:w-[180px] min-h-[120px] relative border-t md:border-t-0 md:border-l border-slate-200 overflow-hidden bg-slate-50">
+                            <div class="w-full md:w-[180px] min-h-[120px] relative border-t md:border-t-0 md:border-l border-white/10 overflow-hidden">
                                 <img src="images/donor_badges.png" alt="Donor Badges" class="w-full h-full object-cover" />
                             </div>
                         </div>
@@ -1345,51 +1330,51 @@ const AppEngine = {
         container.innerHTML = `
             <div class="grid grid-cols-12 gap-6 items-stretch view-section">
                 <!-- Request Form Input Portal -->
-                <div class="col-span-12 lg:col-span-4 bg-white border-2 border-slate-300 rounded-2xl p-6 flex flex-col gap-6 shadow-sm">
+                <div class="col-span-12 lg:col-span-4 glass-card rounded-2xl p-6 flex flex-col gap-6">
                     
                     <!-- Search Mode Switcher Tabs -->
-                    <div class="flex bg-slate-100 p-1.5 rounded-xl border-2 border-slate-200 relative z-10">
-                        <button id="btn-search-mode-donors" onclick="AppEngine.switchSearchMode('DONORS')" class="flex-1 py-2.5 text-xs font-black text-white bg-red-600 rounded-lg shadow-sm transition-all">
+                    <div class="flex bg-black/40 p-1 rounded-xl border border-white/5 relative z-10">
+                        <button id="btn-search-mode-donors" onclick="AppEngine.switchSearchMode('DONORS')" class="flex-1 py-2 text-xs font-bold text-orange-500 bg-orange-500/10 rounded-lg transition-all">
                             Search Donors
                         </button>
-                        <button id="btn-search-mode-facilities" onclick="AppEngine.switchSearchMode('FACILITIES')" class="flex-1 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 rounded-lg transition-all">
+                        <button id="btn-search-mode-facilities" onclick="AppEngine.switchSearchMode('FACILITIES')" class="flex-1 py-2 text-xs font-bold text-on-surface-variant hover:text-white rounded-lg transition-all">
                             Search Blood Banks
                         </button>
                     </div>
 
                     <!-- Search Mode 1: Donors Form -->
                     <div id="form-donors-container" class="space-y-4">
-                        <h3 class="font-headline-md text-headline-md text-slate-900 font-extrabold flex items-center gap-2 mb-2">
-                            <span class="material-symbols-outlined text-red-600">volunteer_activism</span>
+                        <h3 class="font-headline-md text-headline-md text-white flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-orange-500">volunteer_activism</span>
                             Voluntary Donor Match Radar
                         </h3>
 
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">REQUIRED BLOOD GROUP</label>
+                                <label class="block text-xs font-bold text-primary mb-2">REQUIRED BLOOD GROUP</label>
                                 <div class="grid grid-cols-4 gap-2" id="radar-blood-groups">
                                     ${["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"].map(g => `
-                                        <button onclick="AppEngine.selectRadarBloodGroup('${g}')" data-group="${g}" class="bg-white border-2 border-slate-300 rounded-lg p-2.5 text-center text-sm font-bold text-slate-800 hover:border-red-600 hover:text-red-600 transition-all">${g}</button>
+                                        <button onclick="AppEngine.selectRadarBloodGroup('${g}')" data-group="${g}" class="bg-black/30 border border-white/10 rounded-lg p-2 text-center text-sm font-bold text-white hover:border-primary transition-all">${g}</button>
                                     `).join("")}
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">COUNTRY</label>
-                                <input type="text" id="f2s-country" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg p-3 text-slate-900 font-semibold text-sm focus:border-red-600 focus:bg-white" value="India" readonly />
+                                <label class="block text-xs font-bold text-primary mb-2">COUNTRY</label>
+                                <input type="text" id="f2s-country" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-primary focus:ring-0" value="India" readonly />
                             </div>
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">STATE</label>
-                                <input type="text" id="f2s-state" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg p-3 text-slate-900 font-semibold text-sm focus:border-red-600 focus:bg-white" value="Telangana" readonly />
+                                <label class="block text-xs font-bold text-primary mb-2">STATE</label>
+                                <input type="text" id="f2s-state" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-primary focus:ring-0" value="Telangana" readonly />
                             </div>
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">DISTRICT</label>
-                                <input type="text" id="f2s-district" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg p-3 text-slate-900 font-semibold text-sm focus:border-red-600 focus:bg-white" value="Hyderabad" readonly />
+                                <label class="block text-xs font-bold text-primary mb-2">DISTRICT</label>
+                                <input type="text" id="f2s-district" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-primary focus:ring-0" value="Hyderabad" readonly />
                             </div>
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">CITY / NEIGHBORHOOD SECTOR</label>
+                                <label class="block text-xs font-bold text-primary mb-2">CITY / NEIGHBORHOOD SECTOR</label>
                                 <div class="flex gap-2">
-                                    <input type="text" id="f2s-city" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg p-3 text-slate-900 font-semibold text-sm focus:border-red-600 focus:bg-white placeholder:text-slate-400" placeholder="e.g. Gachibowli, Secunderabad, Uppal" value="Gachibowli" />
-                                    <button type="button" onclick="AppEngine.handleDetectF2SLocation()" class="bg-red-50 border-2 border-red-200 text-red-600 px-3.5 rounded-lg hover:bg-red-600 hover:text-white transition-all flex items-center justify-center font-bold" title="Detect GPS coordinates">
+                                    <input type="text" id="f2s-city" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white text-sm focus:border-primary focus:ring-0 placeholder:text-on-surface-variant/30" placeholder="e.g. Gachibowli, Secunderabad, Uppal" value="Gachibowli" />
+                                    <button type="button" onclick="AppEngine.handleDetectF2SLocation()" class="bg-primary/20 border border-primary/30 text-primary px-3 rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center" title="Detect GPS coordinates">
                                         <span class="material-symbols-outlined text-sm">my_location</span>
                                     </button>
                                 </div>
@@ -1397,7 +1382,7 @@ const AppEngine = {
                         </div>
 
                         <div class="pt-2">
-                            <button onclick="AppEngine.triggerFriends2SupportSearch()" class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3.5 rounded-xl font-black transition-all shadow-lg shadow-red-600/30 text-xs uppercase tracking-wider">
+                            <button onclick="AppEngine.triggerFriends2SupportSearch()" class="w-full bg-orange-600 text-white py-3 rounded-lg font-bold hover:bg-orange-500 hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-lg shadow-orange-600/20 text-xs uppercase tracking-wider">
                                 Search for Donor
                             </button>
                         </div>
@@ -1405,22 +1390,22 @@ const AppEngine = {
 
                     <!-- Search Mode 2: Facilities Form (Hidden by default) -->
                     <div id="form-facilities-container" class="space-y-4 hidden">
-                        <h3 class="font-headline-md text-headline-md text-slate-900 font-extrabold flex items-center gap-2 mb-2">
-                            <span class="material-symbols-outlined text-red-600">local_hospital</span>
+                        <h3 class="font-headline-md text-headline-md text-white flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-cyan-500">local_hospital</span>
                             Clinical Node Directory
                         </h3>
 
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">SEARCH BY NAME OR ADDRESS</label>
+                                <label class="block text-xs font-bold text-primary mb-2">SEARCH BY NAME OR ADDRESS</label>
                                 <div class="relative w-full">
-                                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
-                                    <input type="text" id="facility-search" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg pl-9 p-3 text-sm text-slate-900 font-semibold focus:border-red-600 focus:bg-white placeholder:text-slate-400" placeholder="Search Gandhi, Osmania, Apollo..." />
+                                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+                                    <input type="text" id="facility-search" class="w-full bg-black/40 border border-white/10 rounded-lg pl-9 p-3 text-sm text-white focus:border-primary focus:ring-0 placeholder:text-on-surface-variant/30" placeholder="Search Gandhi, Osmania, Apollo..." />
                                 </div>
                             </div>
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">SECTOR FILTER</label>
-                                <select id="filter-sector" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg p-3 text-sm text-slate-900 font-semibold focus:border-red-600 focus:bg-white">
+                                <label class="block text-xs font-bold text-primary mb-2">SECTOR FILTER</label>
+                                <select id="filter-sector" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-sm text-white focus:border-primary focus:ring-0">
                                     <option value="">All Sectors</option>
                                     <option value="Gachibowli">Gachibowli Sector</option>
                                     <option value="Secunderabad">Secunderabad Sector</option>
@@ -1429,8 +1414,8 @@ const AppEngine = {
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-extrabold text-slate-700 mb-2 tracking-wide uppercase">FACILITY TYPE</label>
-                                <select id="filter-type" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg p-3 text-sm text-slate-900 font-semibold focus:border-red-600 focus:bg-white">
+                                <label class="block text-xs font-bold text-primary mb-2">FACILITY TYPE</label>
+                                <select id="filter-type" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-sm text-white focus:border-primary focus:ring-0">
                                     <option value="">All Types</option>
                                     <option value="Government">Government</option>
                                     <option value="Private">Private</option>
@@ -1440,7 +1425,7 @@ const AppEngine = {
                         </div>
 
                         <div class="pt-2">
-                            <button onclick="AppEngine.triggerBloodBanksSearch()" class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white py-3.5 rounded-xl font-black transition-all shadow-lg shadow-red-600/30 text-xs uppercase tracking-wider">
+                            <button onclick="AppEngine.triggerBloodBanksSearch()" class="w-full bg-cyan-600 text-white py-3 rounded-lg font-bold hover:bg-cyan-500 hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-lg shadow-cyan-600/20 text-xs uppercase tracking-wider">
                                 Find Nearby Blood Banks
                             </button>
                         </div>
@@ -1448,26 +1433,26 @@ const AppEngine = {
                 </div>
 
                 <!-- Live Radar Scan Sweep -->
-                <div class="col-span-12 lg:col-span-5 bg-white border-2 border-slate-300 rounded-2xl p-6 relative flex flex-col justify-between items-center min-h-[470px] shadow-sm">
+                <div class="col-span-12 lg:col-span-5 glass-card rounded-2xl p-6 relative flex flex-col justify-between items-center min-h-[470px]">
                     <div class="w-full flex justify-between items-center mb-4">
-                        <h4 class="font-bold font-headline-md text-slate-900 text-base" id="radar-headline">Voluntary Donor Radar</h4>
-                        <span class="text-[10px] font-mono bg-red-50 text-red-700 border-2 border-red-200 px-2.5 py-1 rounded-lg font-bold" id="radar-system-status">VOLUNTARY REGISTRY HUB</span>
+                        <h4 class="font-bold font-headline-md text-white text-base" id="radar-headline">Voluntary Donor Radar</h4>
+                        <span class="text-[10px] font-jetbrainsMono bg-orange-500/10 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded" id="radar-system-status">VOLUNTARY REGISTRY HUB</span>
                     </div>
 
                     <div class="hologram-container py-4 w-full flex justify-center">
-                        <div class="relative w-72 h-72 rounded-full border-4 border-slate-300 bg-slate-950 hologram-radar overflow-hidden flex items-center justify-center shadow-inner" id="radar-mesh">
-                            <div class="absolute w-full h-[3px] bg-red-500 shadow-[0_0_15px_#EF4444] left-0 top-0" id="radar-sweep" style="animation: scan 4s linear infinite;"></div>
+                        <div class="relative w-72 h-72 rounded-full border border-orange-500/20 bg-slate-950/60 hologram-radar overflow-hidden flex items-center justify-center" id="radar-mesh">
+                            <div class="absolute w-full h-[3px] bg-orange-500 shadow-[0_0_15px_#F97316] left-0 top-0" id="radar-sweep" style="animation: scan 4s linear infinite;"></div>
                             
-                            <div class="absolute w-[85%] h-[85%] rounded-full border border-dashed border-red-500/20"></div>
-                            <div class="absolute w-[65%] h-[65%] rounded-full border border-dashed border-red-500/25"></div>
-                            <div class="absolute w-[45%] h-[45%] rounded-full border border-dashed border-red-500/30"></div>
-                            <div class="absolute w-[25%] h-[25%] rounded-full border border-dashed border-red-500/35"></div>
+                            <div class="absolute w-[85%] h-[85%] rounded-full border border-dashed border-orange-500/10"></div>
+                            <div class="absolute w-[65%] h-[65%] rounded-full border border-dashed border-orange-500/15"></div>
+                            <div class="absolute w-[45%] h-[45%] rounded-full border border-dashed border-orange-500/20"></div>
+                            <div class="absolute w-[25%] h-[25%] rounded-full border border-dashed border-orange-500/25"></div>
                             
-                            <div class="absolute w-full h-[1px] bg-red-500/15"></div>
-                            <div class="absolute h-full w-[1px] bg-red-500/15"></div>
+                            <div class="absolute w-full h-[1px] bg-orange-500/5"></div>
+                            <div class="absolute h-full w-[1px] bg-orange-500/5"></div>
 
-                            <div class="absolute w-6 h-6 rounded-full bg-white border-2 border-red-600 shadow-md flex items-center justify-center z-20">
-                                <span class="material-symbols-outlined text-[14px] text-red-600" style="font-variation-settings: 'FILL' 1;">local_hospital</span>
+                            <div class="absolute w-5 h-5 rounded-full bg-white border-2 border-primary shadow-[0_0_15px_rgba(225,29,72,0.8)] flex items-center justify-center z-20">
+                                <span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">local_hospital</span>
                             </div>
                             
                             <div id="radar-pins-container" class="absolute inset-0 z-10"></div>
@@ -1475,20 +1460,20 @@ const AppEngine = {
                     </div>
 
                     <div class="w-full text-center mt-4">
-                        <p class="text-xs text-slate-500 font-mono font-medium" id="radar-status-msg">Sector grid coordinates initialized. Select blood type & search candidates.</p>
+                        <p class="text-xs text-on-surface-variant font-jetbrainsMono" id="radar-status-msg">Sector grid coordinates initialized. Select blood type & search candidates.</p>
                     </div>
                 </div>
 
                 <!-- Match List Results -->
-                <div class="col-span-12 lg:col-span-3 bg-white border-2 border-slate-300 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
+                <div class="col-span-12 lg:col-span-3 glass-card rounded-2xl p-6 flex flex-col justify-between">
                     <div>
-                        <h4 class="font-bold text-slate-900 text-base mb-4" id="matches-headline">Immediate Matches</h4>
+                        <h4 class="font-bold text-white mb-4" id="matches-headline">Immediate Matches</h4>
                         <div id="radar-matches-list" class="space-y-4 max-h-[620px] overflow-y-auto pr-2 custom-scrollbar font-sans">
-                            <p class="text-xs text-slate-500 italic">Run scan search to query candidates.</p>
+                            <p class="text-xs text-on-surface-variant italic">Run scan search to query candidates.</p>
                         </div>
                     </div>
                     
-                    <button onclick="AppEngine.dispatchEmergencyBroadcast()" id="dispatch-btn" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-extrabold py-3.5 rounded-xl hover:scale-105 active:scale-95 transition-transform hidden mt-4 text-xs shadow-md shadow-red-600/30 uppercase tracking-wider">
+                    <button onclick="AppEngine.dispatchEmergencyBroadcast()" id="dispatch-btn" class="w-full bg-primary-container text-on-primary-container font-bold py-3 rounded-lg hover:scale-105 active:scale-95 transition-transform hidden mt-4 text-xs">
                         Generate Dispatch Report
                     </button>
                 </div>
@@ -1514,38 +1499,38 @@ const AppEngine = {
         const radarHeadline = document.getElementById("radar-headline");
 
         if (mode === 'DONORS') {
-            btnDonors.className = "flex-1 py-2.5 text-xs font-black text-white bg-red-600 rounded-lg shadow-sm transition-all";
-            btnFacilities.className = "flex-1 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 rounded-lg transition-all";
+            btnDonors.className = "flex-1 py-2 text-xs font-bold text-orange-500 bg-orange-500/10 rounded-lg transition-all";
+            btnFacilities.className = "flex-1 py-2 text-xs font-bold text-on-surface-variant hover:text-white rounded-lg transition-all";
             donorForm.classList.remove("hidden");
             facilityForm.classList.add("hidden");
             
-            // Set red radar theme
+            // Set orange radar theme
             if (sweepLine) {
-                sweepLine.className = "absolute w-full h-[3px] bg-red-500 shadow-[0_0_15px_#EF4444] left-0 top-0";
+                sweepLine.className = "absolute w-full h-[3px] bg-orange-500 shadow-[0_0_15px_#F97316] left-0 top-0";
             }
             if (systemStatus) {
-                systemStatus.className = "text-[10px] font-mono bg-red-50 text-red-700 border-2 border-red-200 px-2.5 py-1 rounded-lg font-bold";
+                systemStatus.className = "text-[10px] font-jetbrainsMono bg-orange-500/10 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded";
                 systemStatus.innerText = "VOLUNTARY REGISTRY HUB";
             }
             if (radarHeadline) {
                 radarHeadline.innerText = "Voluntary Donor Radar";
             }
         } else {
-            btnFacilities.className = "flex-1 py-2.5 text-xs font-black text-white bg-red-600 rounded-lg shadow-sm transition-all";
-            btnDonors.className = "flex-1 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 rounded-lg transition-all";
+            btnFacilities.className = "flex-1 py-2 text-xs font-bold text-cyan-500 bg-cyan-500/10 rounded-lg transition-all";
+            btnDonors.className = "flex-1 py-2 text-xs font-bold text-on-surface-variant hover:text-white rounded-lg transition-all";
             facilityForm.classList.remove("hidden");
             donorForm.classList.add("hidden");
             
-            // Set red radar theme
+            // Set cyan/blue radar theme
             if (sweepLine) {
-                sweepLine.className = "absolute w-full h-[3px] bg-red-500 shadow-[0_0_15px_#EF4444] left-0 top-0";
+                sweepLine.className = "absolute w-full h-[3px] bg-success-cyan shadow-[0_0_15px_#00E5FF] left-0 top-0";
             }
             if (systemStatus) {
-                systemStatus.className = "text-[10px] font-mono bg-red-50 text-red-700 border-2 border-red-200 px-2.5 py-1 rounded-lg font-bold";
+                systemStatus.className = "text-[10px] font-jetbrainsMono bg-success-cyan/10 text-success-cyan border border-success-cyan/30 px-2 py-0.5 rounded";
                 systemStatus.innerText = "GRID SYSTEM: ACTIVE";
             }
             if (radarHeadline) {
-                radarHeadline.innerText = "Live Clinical Radar";
+                radarHeadline.innerText = "Live Holographic Radar";
             }
         }
 
@@ -1632,11 +1617,11 @@ const AppEngine = {
 
         let donorsHtml = `
             <div>
-                <p class="text-xs font-bold text-red-600 uppercase font-mono tracking-wider mb-3">Voluntary Network Donors (${donors.length})</p>
+                <p class="text-[10px] text-orange-400 uppercase font-jetbrainsMono tracking-wider mb-2">Voluntary Network Donors</p>
                 <div class="space-y-3">
         `;
         if (donors.length === 0) {
-            donorsHtml += `<p class="text-xs text-slate-500 italic">No available, eligible voluntary donors matching criteria in sector.</p>`;
+            donorsHtml += `<p class="text-xs text-on-surface-variant/60 italic">No available, eligible voluntary donors matching criteria in sector.</p>`;
         } else {
             donorsHtml += donors.map((m, idx) => {
                 // Compute mock radial coordinates on radar mesh
@@ -1644,74 +1629,74 @@ const AppEngine = {
                 const radius = 45 + (idx * 20) % 90;
                 const pinX = radius * Math.cos(angle);
                 const pinY = radius * Math.sin(angle);
-                this.createRadarPin(m.donor.fullName, `Voluntary Match: ${m.matchScore}%`, pinX, pinY, "#DC2626");
+                this.createRadarPin(m.donor.fullName, `Voluntary Match: ${m.matchScore}%`, pinX, pinY, "#EA580C");
 
                 let badgeText = "Newbie";
                 let badgeIcon = "🌱";
-                let badgeStyle = "bg-slate-100 text-slate-600 border border-slate-200";
+                let badgeStyle = "bg-white/5 text-on-surface-variant";
                 const count = m.donor.donationCount || 0;
                 if (count >= 10) {
                     badgeText = "Platinum Legend";
                     badgeIcon = "💎";
-                    badgeStyle = "bg-purple-50 text-purple-700 border border-purple-300";
+                    badgeStyle = "bg-indigo-500/10 text-indigo-400 border border-indigo-500/35 shadow-[0_0_15px_rgba(99,102,241,0.2)]";
                 } else if (count >= 6) {
                     badgeText = "Gold Champion";
                     badgeIcon = "🥇";
-                    badgeStyle = "bg-amber-50 text-amber-700 border border-amber-300";
+                    badgeStyle = "bg-yellow-500/10 text-yellow-400 border border-yellow-500/35 shadow-[0_0_15px_rgba(234,179,8,0.2)]";
                 } else if (count >= 3) {
                     badgeText = "Silver Hero";
                     badgeIcon = "🥈";
-                    badgeStyle = "bg-slate-100 text-slate-700 border border-slate-300";
+                    badgeStyle = "bg-slate-400/10 text-slate-300 border border-slate-400/35";
                 } else if (count >= 1) {
                     badgeText = "Bronze Lifesaver";
                     badgeIcon = "🥉";
-                    badgeStyle = "bg-orange-50 text-orange-700 border border-orange-300";
+                    badgeStyle = "bg-amber-600/10 text-amber-500 border border-amber-600/35";
                 }
 
                 const isAvail = m.donor.available !== false; // default true
-                const dotColor = isAvail ? "bg-emerald-500" : "bg-red-500";
-                const availText = isAvail ? "AVAILABLE" : "UNAVAILABLE";
-                const availBadgeClass = isAvail ? "bg-emerald-50 text-emerald-700 border border-emerald-300" : "bg-red-50 text-red-700 border border-red-300";
+                const dotColor = isAvail ? "bg-emerald-500" : "bg-rose-500";
+                const availText = isAvail ? "AVAILABLE" : "NOT AVAILABLE";
+                const availBadgeClass = isAvail ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "bg-rose-500/10 text-rose-400 border border-rose-500/20";
 
                 return `
-                    <div class="p-3.5 rounded-xl ${isAvail ? 'bg-white border-2 border-slate-300 hover:border-red-600 shadow-sm' : 'bg-slate-50 border-2 border-slate-200 opacity-60'} transition-all duration-200 text-xs space-y-2.5">
+                    <div class="p-3.5 rounded-2xl ${isAvail ? 'bg-orange-950/20 border-orange-500/25 hover:border-orange-500/60' : 'bg-slate-900/40 border-white/5 opacity-70'} border transition-all duration-300 text-xs space-y-2">
                         <div class="flex justify-between items-center">
-                            <span class="font-extrabold text-slate-900 flex items-center gap-1.5 truncate max-w-[130px]" title="${m.donor.fullName}">
-                                <span class="w-2.5 h-2.5 rounded-full ${dotColor} ${isAvail ? 'animate-pulse' : ''} flex-shrink-0"></span>
+                            <span class="font-bold text-white flex items-center gap-1.5 truncate max-w-[130px]" title="${m.donor.fullName}">
+                                <span class="w-2 h-2 rounded-full ${dotColor} ${isAvail ? 'animate-pulse' : ''} flex-shrink-0"></span>
                                 ${m.donor.fullName}
                             </span>
                             <div class="flex gap-1.5 flex-shrink-0">
-                                <span class="px-1.5 py-0.5 rounded text-[8px] font-bold ${availBadgeClass}">${availText}</span>
-                                <span class="px-1.5 py-0.5 rounded bg-red-50 text-red-700 border border-red-200 font-mono text-[8px] font-bold">VOLUNTEER</span>
+                                <span class="px-1.5 py-0.5 rounded ${availBadgeClass} font-jetbrainsMono text-[7px] font-bold">${availText}</span>
+                                <span class="px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-400 font-jetbrainsMono text-[7px] font-bold">VOLUNTARY DONOR</span>
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-2 gap-2 text-[10px] text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                        <div class="grid grid-cols-2 gap-2 text-[10px] text-on-surface-variant/90 bg-black/20 p-2 rounded-lg border border-white/5">
                             <div>
-                                <span class="text-slate-400 block text-[8px] uppercase font-mono font-bold">Biological:</span>
-                                <strong class="text-slate-900">${m.donor.bloodGroup} • ${m.donor.gender}</strong>
+                                <span class="text-white/60 block text-[8px] uppercase font-jetbrainsMono">Biological:</span>
+                                <strong>${m.donor.bloodGroup} • ${m.donor.gender}</strong>
                             </div>
                             <div>
-                                <span class="text-slate-400 block text-[8px] uppercase font-mono font-bold">Age:</span>
-                                <strong class="text-slate-900">${m.donor.age} yrs</strong>
+                                <span class="text-white/60 block text-[8px] uppercase font-jetbrainsMono">Age:</span>
+                                <strong>${m.donor.age} yrs</strong>
                             </div>
                             <div>
-                                <span class="text-slate-400 block text-[8px] uppercase font-mono font-bold">Donations:</span>
-                                <strong class="text-slate-900">${m.donor.donationCount || 0} times</strong>
+                                <span class="text-white/60 block text-[8px] uppercase font-jetbrainsMono">Donations:</span>
+                                <strong>${m.donor.donationCount || 0} times</strong>
                             </div>
                             <div>
-                                <span class="text-slate-400 block text-[8px] uppercase font-mono font-bold">Rank:</span>
-                                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[8px] font-bold ${badgeStyle}">
+                                <span class="text-white/60 block text-[8px] uppercase font-jetbrainsMono">Rank:</span>
+                                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[8px] font-bold ${badgeStyle}">
                                     <span>${badgeIcon}</span>
                                     <span>${badgeText}</span>
                                 </span>
                             </div>
                         </div>
 
-                        <div class="flex justify-between items-center text-[10px] text-slate-600 border-t border-slate-200 pt-2 mt-1">
-                            <span class="truncate max-w-[110px] font-semibold text-slate-700" title="${m.distance} • ${m.donor.district || m.donor.city || 'Hyderabad'}">${m.distance} • ${m.donor.district || m.donor.city || 'Hyderabad'}</span>
-                            <a href="tel:${m.donor.phone}" class="text-white bg-red-600 hover:bg-red-700 transition-colors flex items-center gap-1 font-bold px-2.5 py-1 rounded-lg shadow-sm flex-shrink-0">
-                                <span class="material-symbols-outlined text-[13px]">call</span> Call
+                        <div class="flex justify-between items-center text-[10px] text-on-surface-variant/80 border-t border-white/5 pt-1.5 mt-1.5">
+                            <span class="truncate max-w-[110px]" title="${m.distance} • ${m.donor.district || m.donor.city || 'Hyderabad'}">${m.distance} • ${m.donor.district || m.donor.city || 'Hyderabad'}</span>
+                            <a href="tel:${m.donor.phone}" class="text-orange-400 hover:text-white transition-colors flex items-center gap-1 font-bold bg-orange-500/10 px-2.5 py-1 rounded-md border border-orange-500/20 flex-shrink-0">
+                                <span class="material-symbols-outlined text-[12px]">call</span> Call Donor
                             </a>
                         </div>
                     </div>
@@ -1734,9 +1719,9 @@ const AppEngine = {
         this.radarGroup = group;
         document.querySelectorAll("#radar-blood-groups button").forEach(btn => {
             if (btn.getAttribute("data-group") === group) {
-                btn.className = "bg-red-50 border-2 border-red-600 rounded-lg p-2.5 text-center text-sm font-black text-red-600 shadow-sm transition-all";
+                btn.className = "bg-primary/20 border-2 border-primary rounded-lg p-2 text-center text-sm font-bold text-white transition-all";
             } else {
-                btn.className = "bg-white border-2 border-slate-300 rounded-lg p-2.5 text-center text-sm font-bold text-slate-800 hover:border-red-600 hover:text-red-600 transition-all";
+                btn.className = "bg-black/30 border border-white/10 rounded-lg p-2 text-center text-sm font-bold text-white hover:border-primary transition-all";
             }
         });
     },
@@ -1819,19 +1804,19 @@ const AppEngine = {
 
         let clinicsHtml = `
             <div class="mb-4">
-                <p class="text-xs font-bold text-red-600 uppercase font-mono tracking-wider mb-2">Neighborhood Clinics Stock</p>
+                <p class="text-[10px] text-primary uppercase font-jetbrainsMono tracking-wider mb-2">Neighborhood Clinics Stock</p>
                 <div class="space-y-2">
         `;
         if (clinics.length === 0) {
-            clinicsHtml += `<p class="text-xs text-slate-500 italic">No compatible stock in clinics.</p>`;
+            clinicsHtml += `<p class="text-xs text-on-surface-variant/60 italic">No compatible stock in clinics.</p>`;
         } else {
             clinicsHtml += clinics.map(c => `
-                <div class="p-3 rounded-xl bg-white border-2 border-slate-300 hover:border-red-600 transition-colors text-xs shadow-sm">
+                <div class="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-colors text-xs">
                     <div class="flex justify-between items-center">
-                        <span class="font-extrabold text-slate-900 truncate max-w-[130px]">${c.bloodBank.name}</span>
-                        <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 font-black">${c.availableUnits} Units</span>
+                        <span class="font-bold text-white truncate max-w-[120px]">${c.bloodBank.name}</span>
+                        <span class="px-2 py-0.5 rounded bg-success-cyan/15 text-success-cyan font-bold">${c.availableUnits} Units</span>
                     </div>
-                    <p class="text-[10px] text-slate-500 mt-1 truncate">${c.bloodBank.address}</p>
+                    <p class="text-[10px] text-on-surface-variant mt-1 truncate">${c.bloodBank.address}</p>
                 </div>
             `).join("");
         }
@@ -1840,19 +1825,19 @@ const AppEngine = {
 
         let donorsHtml = `
             <div>
-                <p class="text-xs font-bold text-red-600 uppercase font-mono tracking-wider mb-2">Escalated Local Donors</p>
+                <p class="text-[10px] text-primary uppercase font-jetbrainsMono tracking-wider mb-2">Escalated Local Donors</p>
                 <div class="space-y-2">
         `;
         if (donors.length === 0) {
-            donorsHtml += `<p class="text-xs text-slate-500 italic">No escalated donors in area.</p>`;
+            donorsHtml += `<p class="text-xs text-on-surface-variant/60 italic">No escalated donors in area.</p>`;
         } else {
             donorsHtml += donors.map(m => `
-                <div class="p-3 rounded-xl bg-white border-2 border-slate-300 hover:border-red-600 transition-colors text-xs shadow-sm">
+                <div class="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-colors text-xs">
                     <div class="flex justify-between items-center">
-                        <span class="font-extrabold text-slate-900">${m.donor.fullName}</span>
-                        <span class="px-2 py-0.5 rounded-md bg-red-50 text-red-600 border border-red-200 font-black">${m.matchScore}% Match</span>
+                        <span class="font-bold text-white">${m.donor.fullName}</span>
+                        <span class="text-success-cyan font-bold">${m.matchScore}%</span>
                     </div>
-                    <p class="text-[10px] text-slate-500 mt-1">${m.distance} away • ${m.donor.phone}</p>
+                    <p class="text-[10px] text-on-surface-variant mt-1">${m.distance} away • ${m.donor.phone}</p>
                 </div>
             `).join("");
         }
@@ -2015,34 +2000,34 @@ const AppEngine = {
             const displayDist = b.distanceKm ? b.distanceKm.toFixed(2) : (1.5 + idx * 0.8).toFixed(1);
 
             return `
-                <div class="glass-card rounded-2xl p-5 flex flex-col justify-between border-2 border-slate-300 hover:border-red-600 transition-all duration-300 shadow-sm">
+                <div class="glass-card rounded-2xl p-5 flex flex-col justify-between border border-white/5 hover:border-white/20 transition-all duration-300">
                     <div>
                         <div class="flex justify-between items-start mb-2.5">
                             <div class="min-w-0 flex-1">
                                 <span class="px-2 py-0.5 rounded-full text-[8px] font-bold border ${statusClass} font-jetbrainsMono">${statusText}</span>
-                                <h4 class="font-extrabold text-slate-900 text-base mt-2 truncate" title="${b.name}">${b.name}</h4>
+                                <h4 class="font-bold text-white text-base mt-2 truncate" title="${b.name}">${b.name}</h4>
                             </div>
-                            <div class="w-8 h-8 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center flex-shrink-0 ml-2">
-                                <span class="material-symbols-outlined text-sm text-red-600">local_hospital</span>
+                            <div class="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 ml-2">
+                                <span class="material-symbols-outlined text-sm text-success-cyan">local_hospital</span>
                             </div>
                         </div>
-                        <p class="text-[10px] text-slate-600 flex items-center gap-1 font-jetbrainsMono mb-3">
-                            <span class="material-symbols-outlined text-xs text-red-600">distance</span>
-                            <span class="text-red-600 font-bold">${displayDist} KM</span>
-                            <span class="text-slate-400">• ${b.subLocation || b.city || 'Hyderabad'} Sector</span>
+                        <p class="text-[10px] text-on-surface-variant flex items-center gap-1 font-jetbrainsMono mb-3">
+                            <span class="material-symbols-outlined text-xs text-primary">distance</span>
+                            <span class="text-white font-bold">${displayDist} KM</span>
+                            <span class="opacity-60">• ${b.subLocation || b.city || 'Hyderabad'} Sector</span>
                         </p>
-                        <p class="text-[10px] text-slate-600 mb-4 line-clamp-2">${b.address}</p>
+                        <p class="text-[10px] text-on-surface-variant/80 mb-4 line-clamp-2">${b.address}</p>
                         
-                        <div class="grid grid-cols-4 gap-2 bg-slate-50 p-3 rounded-xl border border-slate-200 mb-4">
+                        <div class="grid grid-cols-4 gap-2 bg-black/45 p-3 rounded-xl border border-white/5 mb-4">
                             ${invList}
                         </div>
                     </div>
                     
-                    <div class="flex gap-2 border-t border-slate-200 pt-3">
-                        <button onclick="AppEngine.contactFacility('${b.contactNumber || b.contact || '+919900112233'}', '${b.name.replace(/'/g, "\\'")}')" class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg text-[10px] flex items-center justify-center gap-0.5 transition-colors shadow-sm">
+                    <div class="flex gap-2 border-t border-white/5 pt-3">
+                        <button onclick="AppEngine.contactFacility('${b.contactNumber || b.contact || '+919900112233'}', '${b.name.replace(/'/g, "\\'")}')" class="flex-1 py-2 bg-primary/20 text-primary border border-primary/30 font-bold rounded-lg text-[10px] flex items-center justify-center gap-0.5 hover:bg-primary hover:text-white transition-colors">
                             <span class="material-symbols-outlined text-xs">call</span> Contact
                         </button>
-                        <button onclick="AppEngine.openGoogleMaps('${b.name.replace(/'/g, "\\'")}')" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 font-bold rounded-lg text-[10px] flex items-center justify-center gap-0.5 transition-colors">
+                        <button onclick="AppEngine.openGoogleMaps('${b.name.replace(/'/g, "\\'")}')" class="flex-1 py-2 bg-success-cyan/10 text-success-cyan border border-success-cyan/20 hover:bg-success-cyan hover:text-black font-bold rounded-lg text-[10px] flex items-center justify-center gap-0.5 transition-colors">
                             <span class="material-symbols-outlined text-xs">map</span> Maps
                         </button>
                     </div>
@@ -2550,30 +2535,30 @@ const AppEngine = {
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span class="text-[10px] font-jetbrainsMono text-emerald-600 uppercase tracking-wider font-bold">Supabase Live Data Grid</span>
+                            <span class="w-2 h-2 rounded-full bg-success-cyan animate-pulse"></span>
+                            <span class="text-[10px] font-jetbrainsMono text-success-cyan uppercase tracking-wider">Supabase Live Data Grid</span>
                         </div>
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Clinical Hospital Management</h2>
-                        <p class="text-xs text-slate-600 font-medium">Live clinical directory backed by Supabase PostgreSQL across all Hyderabad sectors. Manage credentials, locations, and real-time blood stock.</p>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-white">Clinical Hospital Management</h2>
+                        <p class="text-xs text-on-surface-variant">Live clinical directory backed by Supabase PostgreSQL across all Hyderabad sectors. Manage credentials, locations, and real-time blood stock.</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <span id="sb-hosp-count-badge" class="px-3 py-1.5 rounded-full bg-red-50 border border-red-200 text-xs font-jetbrainsMono text-red-700 font-bold">
+                        <span id="sb-hosp-count-badge" class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-jetbrainsMono text-white">
                             ${hospitals.length} Hospitals
                         </span>
-                        <button onclick="AppEngine.openRegisterHospitalModal()" class="px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl text-xs font-bold hover:scale-105 transition-all shadow-md shadow-red-600/30 flex items-center gap-1.5">
+                        <button onclick="AppEngine.openRegisterHospitalModal()" class="px-4 py-2 bg-primary text-white rounded-xl text-xs font-bold hover:scale-105 transition-all shadow-lg shadow-primary/20 flex items-center gap-1.5">
                             <span class="material-symbols-outlined text-sm">add_circle</span> Register
                         </button>
                     </div>
                 </div>
 
                 <!-- Search and Sector Filter Controls -->
-                <div class="glass-card p-4 rounded-xl border-2 border-slate-300 flex flex-col md:flex-row gap-3 shadow-sm">
+                <div class="glass-card p-4 rounded-xl border border-white/10 flex flex-col md:flex-row gap-3">
                     <div class="flex-1 relative">
-                        <span class="material-symbols-outlined absolute left-3 top-2.5 text-red-600 text-sm">search</span>
-                        <input type="text" id="sb-hosp-search" oninput="AppEngine.filterSupabaseHospitals()" placeholder="Search hospital name, sector, or address..." class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-red-600 focus:bg-white focus:outline-none" />
+                        <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-sm">search</span>
+                        <input type="text" id="sb-hosp-search" oninput="AppEngine.filterSupabaseHospitals()" placeholder="Search hospital name, sector, or address..." class="w-full bg-black/40 border border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-on-surface-variant/50 focus:border-primary focus:outline-none" />
                     </div>
                     <div class="w-full md:w-56">
-                        <select id="sb-hosp-sector" onchange="AppEngine.filterSupabaseHospitals()" class="w-full bg-slate-50 border-2 border-slate-300 rounded-lg px-3 py-2 text-xs text-slate-900 focus:border-red-600 focus:bg-white focus:outline-none">
+                        <select id="sb-hosp-sector" onchange="AppEngine.filterSupabaseHospitals()" class="w-full bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-xs text-white focus:border-primary focus:outline-none">
                             <option value="">All Hyderabad Locations (${hospitals.length})</option>
                             ${sectors.map(s => `<option value="${s}">${s}</option>`).join("")}
                         </select>
@@ -2598,7 +2583,7 @@ const AppEngine = {
         if (countBadge) countBadge.innerText = `${hospitals.length} Hospitals`;
 
         if (hospitals.length === 0) {
-            container.innerHTML = `<div class="p-8 text-center text-slate-500 font-jetbrainsMono text-xs">No medical facilities found matching search criteria.</div>`;
+            container.innerHTML = `<div class="p-8 text-center text-on-surface-variant font-jetbrainsMono text-xs">No medical facilities found matching search criteria.</div>`;
             return;
         }
 
@@ -2610,41 +2595,41 @@ const AppEngine = {
             const totalUnits = Object.values(inv).reduce((sum, v) => sum + (parseInt(v) || 0), 0);
 
             return `
-                <div class="glass-card rounded-2xl p-6 border-2 border-slate-300 hover:border-red-600 transition-all flex flex-col md:flex-row gap-6 items-center shadow-sm">
-                    <div class="w-full md:w-44 h-32 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200 flex-shrink-0">
+                <div class="glass-card rounded-2xl p-6 border border-white/5 hover:border-white/20 transition-all flex flex-col md:flex-row gap-6 items-center">
+                    <div class="w-full md:w-44 h-32 rounded-xl overflow-hidden bg-black/40 border border-white/10 flex-shrink-0">
                         <img src="${imgUrl}" class="w-full h-full object-cover" alt="${h.hospitalName}" />
                     </div>
                     <div class="flex-1 space-y-2 w-full">
                         <div class="flex justify-between items-start">
                             <div>
-                                <h4 class="font-bold text-slate-900 text-lg">${h.hospitalName || h.name}</h4>
-                                <p class="text-xs text-red-600 font-jetbrainsMono uppercase tracking-wider font-bold">${h.district || h.location || 'General Sector'}</p>
+                                <h4 class="font-bold text-white text-lg">${h.hospitalName || h.name}</h4>
+                                <p class="text-xs text-primary font-jetbrainsMono uppercase tracking-wider">${h.district || h.location || 'General Sector'}</p>
                             </div>
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-jetbrainsMono font-bold">
+                            <span class="px-2.5 py-1 rounded-full bg-success-cyan/10 text-success-cyan border border-success-cyan/20 text-[10px] font-jetbrainsMono font-bold">
                                 ${totalUnits} Units in Stock
                             </span>
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            <strong class="text-slate-900 font-bold">Address:</strong> ${h.address || h.location || 'Hyderabad'}<br/>
-                            <strong class="text-slate-900 font-bold">Contact:</strong> ${h.emergencyContact || h.contactNumber || '+91 40 1234 5678'} &bull; <strong class="text-slate-900 font-bold">Email:</strong> ${h.corporateEmail || h.email || 'admin@hospital.org'}
+                        <p class="text-xs text-on-surface-variant leading-relaxed">
+                            <span class="text-white">Address:</span> ${h.address || h.location || 'Hyderabad'}<br/>
+                            <span class="text-white">Contact:</span> ${h.emergencyContact || h.contactNumber || '+91 40 1234 5678'} &bull; <span class="text-white">Email:</span> ${h.corporateEmail || h.email || 'admin@hospital.org'}
                         </p>
                         <!-- Blood units badges -->
                         <div class="flex flex-wrap gap-1.5 pt-2">
                             ${Object.entries(inv).map(([g, q]) => `
-                                <span class="px-2.5 py-1 rounded-lg bg-red-50/80 border border-red-200 text-[11px] font-jetbrainsMono ${q <= 5 ? 'text-red-700 font-black border-red-300 bg-red-100/90' : 'text-slate-800 font-bold'}">
+                                <span class="px-2 py-0.5 rounded bg-black/50 border border-white/10 text-[10px] font-jetbrainsMono ${q <= 5 ? 'text-primary border-primary/30 font-bold' : 'text-white'}">
                                     <strong>${g}:</strong> ${q}
                                 </span>
                             `).join("")}
                         </div>
                         <div class="flex items-center gap-3 pt-3">
-                            <button onclick="AppEngine.openEditHospitalModal('${h.id}')" class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-red-700 text-white text-xs font-bold hover:scale-105 transition-all shadow-md shadow-red-600/30 flex items-center gap-1.5">
+                            <button onclick="AppEngine.openEditHospitalModal('${h.id}')" class="px-4 py-1.5 rounded-lg bg-primary text-white text-xs font-bold hover:scale-105 transition-all shadow-md shadow-primary/20 flex items-center gap-1.5">
                                 <span class="material-symbols-outlined text-xs">edit</span> Edit & Update Stock
                             </button>
-                            <button onclick="AppEngine.openGoogleMaps('${(h.hospitalName || h.name).replace(/'/g, "\\'")}')" class="px-3.5 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 hover:text-red-600 hover:border-red-300 transition-colors flex items-center gap-1">
+                            <button onclick="AppEngine.openGoogleMaps('${(h.hospitalName || h.name).replace(/'/g, "\\'")}')" class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold text-on-surface-variant hover:text-white flex items-center gap-1">
                                 <span class="material-symbols-outlined text-xs">map</span> Locate
                             </button>
                             ${isAdmin ? `
-                                <button onclick="AppEngine.deleteHospitalNode('${h.id}')" class="text-xs text-slate-500 hover:text-red-600 transition-colors font-bold flex items-center gap-1">
+                                <button onclick="AppEngine.deleteHospitalNode('${h.id}')" class="text-xs text-on-surface-variant/70 hover:text-primary transition-colors font-bold flex items-center gap-1">
                                     <span class="material-symbols-outlined text-xs">delete</span> Delete
                                 </button>
                             ` : ''}
@@ -3842,7 +3827,7 @@ const AppEngine = {
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(220, 38, 38, ${p.opacity * 0.8})`;
+                ctx.fillStyle = `rgba(255, 23, 68, ${p.opacity})`;
                 ctx.fill();
             });
             requestAnimationFrame(draw);
