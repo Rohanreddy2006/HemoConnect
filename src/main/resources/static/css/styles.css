@@ -1,0 +1,414 @@
+/* HemoConnect Custom Premium Styles & Animations - Vibrant Blood Red Theme with Crisp High-Contrast Borders */
+:root {
+    --primary-red: #DC2626;
+    --primary-red-hover: #B91C1C;
+    --primary-red-glow: rgba(220, 38, 38, 0.4);
+    --dark-bg: #F1F5F9;
+    --text-color: #0F172A;
+    --text-muted: #475569;
+    --glass-surface: #FFFFFF;
+    --glass-border: #CBD5E1;
+    --bio-cyan: #0284C7;
+    --bio-cyan-glow: rgba(2, 132, 199, 0.3);
+}
+
+body {
+    background-color: #F1F5F9 !important;
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #E2E8F0;
+}
+::-webkit-scrollbar-thumb {
+    background: #94A3B8;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-red);
+}
+
+/* Hero Blood Scene - Rich Crimson Red Hue Adjustment */
+img[src*="blood_donation_scene.png"] {
+    filter: hue-rotate(25deg) saturate(1.7) contrast(1.08);
+}
+
+/* Crisp Visible White Cards with Strong Defined 2px Borders */
+.glass-card {
+    background-color: #FFFFFF !important;
+    border: 2px solid #CBD5E1 !important;
+    box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 1.25rem !important;
+}
+.glass-card:hover {
+    border-color: #DC2626 !important;
+    box-shadow: 0 12px 28px -4px rgba(220, 38, 38, 0.16), 0 4px 10px -2px rgba(0, 0, 0, 0.05) !important;
+    transform: translateY(-2px);
+}
+
+/* Headings High Contrast */
+h1, h2, h3, h4, h5, h6 {
+    color: #0F172A !important;
+    font-weight: 800;
+}
+p, li {
+    color: #334155;
+}
+.text-on-surface-variant {
+    color: #475569 !important;
+}
+
+/* Light mode text readability inside glass cards */
+.glass-card .text-white:not(button):not(button *):not(a):not(a *):not([class*="bg-red"]):not([class*="bg-primary"]):not([class*="from-red"]):not([class*="from-primary"]):not(.badge-bronze):not(.badge-silver):not(.badge-gold):not(.badge-platinum) {
+    color: #0F172A !important;
+}
+
+/* Form Labels - Bold, Sharp & Easily Legible */
+label {
+    color: #1E293B !important;
+    font-weight: 800 !important;
+    font-size: 0.725rem !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.35rem !important;
+    display: block !important;
+}
+
+/* Universal Inputs & Selects with High-Visibility 2px Borders */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea,
+.bg-black\/50,
+.bg-black\/40,
+.bg-black\/30,
+.bg-black\/20 {
+    background-color: #F8FAFC !important;
+    border: 2px solid #CBD5E1 !important;
+    color: #0F172A !important;
+    font-weight: 600 !important;
+    border-radius: 0.625rem !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #94A3B8 !important;
+    font-weight: 500 !important;
+}
+
+input:hover, select:hover, textarea:hover {
+    border-color: #94A3B8 !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    background-color: #FFFFFF !important;
+    border-color: #DC2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+    outline: none !important;
+}
+
+select option {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+}
+
+/* Blood Group Selector Buttons */
+#radar-blood-groups button {
+    background-color: #FFFFFF !important;
+    border: 2px solid #CBD5E1 !important;
+    color: #1E293B !important;
+    font-weight: 700 !important;
+    border-radius: 0.625rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+}
+#radar-blood-groups button:hover {
+    border-color: #DC2626 !important;
+    color: #DC2626 !important;
+    background-color: #FEF2F2 !important;
+}
+#radar-blood-groups button.border-primary,
+#radar-blood-groups button.border-red-600,
+#radar-blood-groups button[data-selected="true"],
+#radar-blood-groups button.bg-red-50 {
+    background-color: #FEF2F2 !important;
+    border-color: #DC2626 !important;
+    color: #DC2626 !important;
+    font-weight: 900 !important;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Distinct Card Borders for Layout Blocks */
+.border-white\/10,
+.border-white\/5,
+.border-white\/20,
+.border-slate-200,
+.border-slate-300 {
+    border-color: #CBD5E1 !important;
+}
+
+.bg-white\/5,
+.bg-white\/10 {
+    background-color: #F8FAFC !important;
+    border: 1.5px solid #E2E8F0 !important;
+}
+
+/* Radar Display HUD Frame */
+#radar-mesh {
+    border: 4px solid #CBD5E1 !important;
+    background-color: #0F172A !important;
+    box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.7) !important;
+}
+#radar-sweep {
+    background-color: #DC2626 !important;
+    box-shadow: 0 0 16px #EF4444 !important;
+}
+
+/* Modal Backdrops & Overlays */
+.fixed.inset-0.bg-black\/80,
+.fixed.inset-0.bg-black\/85,
+.fixed.inset-0.bg-black\/70,
+.fixed.inset-0.bg-black\/60 {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+/* Buttons and Colored Badges retain crisp white text */
+button.bg-primary,
+button.bg-primary-container,
+.bg-primary,
+.bg-primary-container,
+[class*="bg-primary"],
+[class*="from-primary"],
+[class*="from-red"],
+button[class*="bg-primary"],
+button[class*="from-primary"],
+button[class*="from-red"],
+button[class*="bg-red-"],
+a[class*="bg-primary"],
+a[class*="bg-red-"],
+.badge-bronze,
+.badge-silver,
+.badge-gold,
+.badge-platinum {
+    color: #FFFFFF !important;
+}
+
+button.bg-primary *,
+button.bg-primary-container *,
+button[class*="from-primary"] *,
+button[class*="from-red"] *,
+button[class*="bg-red-"] *,
+[class*="bg-primary"] span.material-symbols-outlined,
+[class*="from-red"] span.material-symbols-outlined,
+[class*="bg-red-"] span.material-symbols-outlined {
+    color: #FFFFFF !important;
+}
+
+/* Table Light Mode Overrides with Clear Grid Lines */
+table {
+    border: 2px solid #CBD5E1 !important;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+table thead tr {
+    background-color: #FEF2F2 !important;
+    border-bottom: 2px solid #CBD5E1 !important;
+    color: #1E293B !important;
+}
+table tbody tr {
+    border-bottom: 1px solid #E2E8F0 !important;
+    background-color: #FFFFFF !important;
+}
+table tbody tr:hover {
+    background-color: #FFF5F5 !important;
+}
+table td {
+    color: #1E293B !important;
+    font-weight: 500;
+}
+
+/* 3D Vial Status Bar */
+.vial-liquid {
+    transition: height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(180deg, #EF4444 0%, #B91C1C 100%);
+    box-shadow: 0 -4px 12px rgba(220, 38, 38, 0.5);
+}
+.scan-line {
+    height: 2px;
+    width: 100%;
+    background: rgba(2, 132, 199, 0.8);
+    box-shadow: 0 0 10px rgba(2, 132, 199, 0.5);
+    position: absolute;
+    animation: scan 3s linear infinite;
+}
+@keyframes scan {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+/* Radar Pulse / Scanner Glow */
+.scanning-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
+    opacity: 0;
+    pointer-events: none;
+}
+.glass-card:hover .scanning-bar {
+    animation: scan 2.5s linear infinite;
+    opacity: 1;
+}
+
+/* Neon Glow Animations */
+.neon-stepper-line {
+    background: linear-gradient(90deg, #EF4444 0%, rgba(203, 213, 225, 0.8) 100%);
+}
+.input-glow:focus-within {
+    border-bottom: 2px solid #DC2626;
+    box-shadow: 0 4px 12px -2px rgba(220, 38, 38, 0.3);
+}
+
+/* Float Animations for Illustrations */
+.float-animation {
+    animation: floating 6s ease-in-out infinite;
+}
+@keyframes floating {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Emergency Core Pulse Buttons */
+.emergency-pulse-btn {
+    animation: pulse-glow 2s infinite;
+}
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+    70% { box-shadow: 0 0 0 14px rgba(220, 38, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+.emergency-pulse {
+    animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.85; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Rose Four Reload Overlay */
+#rose-four-loader {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    transition: opacity 300ms ease;
+}
+.rose-four-path {
+    stroke: var(--primary-red);
+    stroke-width: 4.6px;
+    filter: drop-shadow(0 0 8px var(--primary-red-glow));
+}
+.rose-four-particle {
+    fill: #EF4444;
+    filter: drop-shadow(0 0 10px var(--primary-red));
+}
+
+/* View transitions */
+.view-section {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Arterial Flow Stepper path animation */
+@keyframes arterial-flow-pulse {
+    0% { stroke-dashoffset: 30; }
+    100% { stroke-dashoffset: 0; }
+}
+.arterial-vessel-line {
+    stroke: #DC2626;
+    stroke-dasharray: 8 6;
+    animation: arterial-flow-pulse 1.8s linear infinite;
+    filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.5));
+}
+.arterial-node-pulse {
+    animation: node-pulse-glow 2s infinite;
+}
+@keyframes node-pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+/* System Status Protocol Headings */
+.protocol-title {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #DC2626, #0284C7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.protocol-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #0284C7;
+    opacity: 0.9;
+}
+
+/* 3D Liquid Vials Animation and Fill */
+.liquid-fill {
+    transition: height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+.liquid-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: scan-shine 3s infinite;
+}
+@keyframes scan-shine {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+/* Donor Badge Styling */
+.badge-bronze {
+    background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+    border: 1px solid rgba(205, 127, 50, 0.5);
+    box-shadow: 0 0 8px rgba(205, 127, 50, 0.3);
+}
+.badge-silver {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    box-shadow: 0 0 8px rgba(148, 163, 184, 0.3);
+}
+.badge-gold {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+.badge-platinum {
+    background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+    border: 1px solid rgba(168, 85, 247, 0.6);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}

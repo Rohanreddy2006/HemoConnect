@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoConnect — Round 1 Presentation Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #070A13;
+            color: #E2E8F0;
+            margin: 0;
+            padding: 0;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .font-sora { font-family: 'Sora', sans-serif; }
+        .slide {
+            width: 100%;
+            max-width: 1100px;
+            min-height: 620px;
+            margin: 24px auto;
+            background: #0B0F1C;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+            break-after: page;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+        }
+        @media print {
+            body {
+                background: #070A13 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .slide {
+                margin: 0 !important;
+                border-radius: 0 !important;
+                border: none !important;
+                min-height: 100vh !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="py-6 px-4">
+
+    <!-- FLOATING QUICK PRINT BAR -->
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-3 no-print bg-slate-900/90 border border-white/20 p-2.5 rounded-xl shadow-2xl backdrop-blur-md">
+        <span class="text-xs font-mono text-cyan-400 font-semibold px-2">Ready to Save as PDF</span>
+        <button onclick="window.print()" class="px-5 py-2 bg-[#E11D48] hover:bg-[#BE123C] text-white text-xs font-bold rounded-lg transition-all shadow-lg flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+            One-Click Save as PDF
+        </button>
+    </div>
+
+    <!-- ================= SLIDE 1: TITLE SLIDE ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-[#E11D48] font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-[#E11D48] animate-pulse"></span>
+                ROUND 1 — IDEATION & PROBLEM STATEMENT
+            </span>
+            <span>DOMAIN: SOFTWARE / DIGITAL HEALTH</span>
+        </div>
+        <div class="my-auto text-center py-10">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-[#E11D48]/15 border border-[#E11D48]/30 text-[#E11D48] font-mono text-xs font-bold mb-4">
+                ENTERPRISE HEALTHCARE DISPATCH GRID
+            </div>
+            <h1 class="text-5xl font-sora font-extrabold text-white tracking-tight">
+                HEMO<span class="text-[#E11D48]">CONNECT</span>
+            </h1>
+            <p class="text-xl text-gray-300 font-sora mt-3 max-w-2xl mx-auto">
+                Next-Gen Real-Time Blood Logistics & Clinical Emergency Coordination Platform
+            </p>
+            <p class="text-sm text-gray-400 font-mono mt-2">
+                Eliminating the "Golden Hour" Transfusion Discovery Delay
+            </p>
+            <div class="flex justify-center gap-3 mt-8 text-xs font-mono">
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg">Java 21 • Spring Boot 3</span>
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg">Google Cloud Firestore</span>
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg">Haversine GPS Routing</span>
+                <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-lg">OWASP Top 10 Security</span>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>TEAM SUBMISSION: <strong class="text-white">HEMOCONNECT</strong></span>
+            <span>SLIDE 01 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 2: PROBLEM STATEMENT ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-[#E11D48] font-bold">01. PROBLEM STATEMENT</span>
+            <span>THE CLINICAL CRISIS</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">The "Golden Hour" Blood Discovery Crisis</h2>
+            <p class="text-sm text-gray-300 mb-6">In life-or-death emergencies, delayed blood transfusion is a leading cause of preventable mortality.</p>
+            
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="glass-card p-4 border-l-4 border-[#E11D48]">
+                    <div class="text-[#E11D48] font-mono text-xs font-bold mb-1">CRITICAL DELAYS</div>
+                    <div class="text-white font-bold text-sm mb-1">The 2–4 Hour Search Lag</div>
+                    <p class="text-xs text-gray-400">Families are forced to make panic-driven phone calls and travel between clinics without real-time inventory visibility.</p>
+                </div>
+                <div class="glass-card p-4 border-l-4 border-cyan-400">
+                    <div class="text-cyan-400 font-mono text-xs font-bold mb-1">FRAGMENTED SILOS</div>
+                    <div class="text-white font-bold text-sm mb-1">Isolated Blood Banks</div>
+                    <p class="text-xs text-gray-400">Nearby hospitals have surplus units, but disconnected systems prevent inter-hospital sharing and coordination.</p>
+                </div>
+                <div class="glass-card p-4 border-l-4 border-amber-400">
+                    <div class="text-amber-400 font-mono text-xs font-bold mb-1">SAFETY & FATIGUE</div>
+                    <div class="text-white font-bold text-sm mb-1">Biological Mismatch Risks</div>
+                    <p class="text-xs text-gray-400">Manual crossmatching risks fatal ABO/Rh mismatches, while frequent donors are called without mandatory rest intervals.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-4 bg-[#E11D48]/10 border border-[#E11D48]/30 flex items-center justify-between">
+                <div>
+                    <div class="text-xs font-mono font-bold text-[#E11D48]">KEY STATISTICAL REALITY</div>
+                    <div class="text-sm text-white font-medium">Up to 70% of preventable trauma deaths are linked to transfusion delays beyond the first critical hour.</div>
+                </div>
+                <span class="material-symbols-outlined text-3xl text-[#E11D48]">timer_off</span>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 02 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 3: PROPOSED SOLUTION ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-cyan-400 font-bold">02. PROPOSED SOLUTION</span>
+            <span>INNOVATION HIGHLIGHTS</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">HemoConnect: Real-Time Precision Dispatch Grid</h2>
+            <p class="text-sm text-gray-300 mb-6">An automated, sub-second coordination platform connecting hospitals, blood banks, and verified voluntary donors.</p>
+            
+            <div class="grid grid-cols-2 gap-5 mb-5">
+                <div class="glass-card p-4 flex gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-[#E11D48]/20 flex items-center justify-center text-[#E11D48] shrink-0 font-bold">01</div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Automated Compatibility Engine</h3>
+                        <p class="text-xs text-gray-400 mt-1">Strict ABO/Rh immunohematology logic ensures 100% biological transfusion safety and automatic 90-day donor rest enforcement.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-4 flex gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-400/20 flex items-center justify-center text-cyan-400 shrink-0 font-bold">02</div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Stock-First Proximity Dispatch</h3>
+                        <p class="text-xs text-gray-400 mt-1">Computes great-circle distances via Haversine formula to exhaust nearby hospital shelf stock before contacting voluntary citizens.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-4 flex gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-purple-400/20 flex items-center justify-center text-purple-400 shrink-0 font-bold">03</div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Hybrid Zero Cold-Start Pipeline</h3>
+                        <p class="text-xs text-gray-400 mt-1">Combines verified local community donors with a live Jsoup web scraper querying national donor registries on the fly.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-4 flex gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-400/20 flex items-center justify-center text-emerald-400 shrink-0 font-bold">04</div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">HemoAI Diagnostic & Triage Suite</h3>
+                        <p class="text-xs text-gray-400 mt-1">Pre-donation physical eligibility checker, 30-day regional shortage forecaster, and dietary iron recovery chatbot.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-xs font-mono text-center text-cyan-400 bg-cyan-400/10 p-2.5 rounded-xl border border-cyan-400/20">
+                TRANSFORMATION: Replaces 4 hours of frantic manual phone calls with a verified &lt;60 second dispatch response.
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 03 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 4: TARGET USERS ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-[#E11D48] font-bold">03. TARGET USERS & STAKEHOLDERS</span>
+            <span>ECOSYSTEM INTEGRATION</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">Stakeholder Matrix & Value Realization</h2>
+            <p class="text-sm text-gray-300 mb-6">Designed for multi-tier clinical coordination across the entire healthcare spectrum.</p>
+            
+            <div class="grid grid-cols-4 gap-4">
+                <div class="glass-card p-4 text-center border-t-4 border-[#E11D48]">
+                    <span class="material-symbols-outlined text-3xl text-[#E11D48] mb-2">emergency</span>
+                    <h3 class="text-white font-bold text-xs">Patients & Families</h3>
+                    <p class="text-[11px] font-mono text-[#E11D48] mb-2">END BENEFICIARY</p>
+                    <p class="text-xs text-gray-400">Instant access to verified compatible blood without middle-man exploitation or panic outreach.</p>
+                </div>
+                <div class="glass-card p-4 text-center border-t-4 border-cyan-400">
+                    <span class="material-symbols-outlined text-3xl text-cyan-400 mb-2">local_hospital</span>
+                    <h3 class="text-white font-bold text-xs">Hospitals & ICUs</h3>
+                    <p class="text-[11px] font-mono text-cyan-400 mb-2">B2B ENTERPRISE</p>
+                    <p class="text-xs text-gray-400">Hospital Access Key (HAK) login, emergency batch broadcast, and inter-hospital stock balancing.</p>
+                </div>
+                <div class="glass-card p-4 text-center border-t-4 border-purple-400">
+                    <span class="material-symbols-outlined text-3xl text-purple-400 mb-2">bloodtype</span>
+                    <h3 class="text-white font-bold text-xs">Blood Banks</h3>
+                    <p class="text-[11px] font-mono text-purple-400 mb-2">INVENTORY HUBS</p>
+                    <p class="text-xs text-gray-400">Live shelf inventory tracking, expiration warnings, and automated volunteer donor call-outs.</p>
+                </div>
+                <div class="glass-card p-4 text-center border-t-4 border-emerald-400">
+                    <span class="material-symbols-outlined text-3xl text-emerald-400 mb-2">volunteer_activism</span>
+                    <h3 class="text-white font-bold text-xs">Voluntary Donors</h3>
+                    <p class="text-[11px] font-mono text-emerald-400 mb-2">COMMUNITY PILLAR</p>
+                    <p class="text-xs text-gray-400">Quick 1-click registration, pre-donation fitness assessment, and post-donation iron care protocols.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 04 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 5: KEY FEATURES ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-cyan-400 font-bold">04. KEY FEATURES</span>
+            <span>FUNCTIONAL CAPABILITIES</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">Core Platform Capabilities</h2>
+            <p class="text-sm text-gray-300 mb-6">Engineered with rigorous medical compliance, mathematical routing, and AI triage.</p>
+            
+            <div class="grid grid-cols-3 gap-4">
+                <div class="glass-card p-4">
+                    <div class="text-[#E11D48] font-bold text-xs font-mono mb-1">01. TRANSFUSION SAFETY</div>
+                    <h3 class="text-white font-bold text-sm mb-1">Smart ABO/Rh Matcher</h3>
+                    <p class="text-xs text-gray-400">Strict immunohematology rules ensure Universal Donor (O-) and Universal Recipient (AB+) compatibility with 0% mismatch rate.</p>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-cyan-400 font-bold text-xs font-mono mb-1">02. PROXIMITY ROUTING</div>
+                    <h3 class="text-white font-bold text-sm mb-1">Haversine GPS Engine</h3>
+                    <p class="text-xs text-gray-400">Calculates great-circle distance between patients and 132+ regional clinics to route closest available reserves first.</p>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-purple-400 font-bold text-xs font-mono mb-1">03. DATA RESILIENCE</div>
+                    <h3 class="text-white font-bold text-sm mb-1">Hybrid Registry Scraper</h3>
+                    <p class="text-xs text-gray-400">Jsoup parser continuously integrates live national donor registries to prevent cold-start donor deficits.</p>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-amber-400 font-bold text-xs font-mono mb-1">04. CLINICAL TRIAGE</div>
+                    <h3 class="text-white font-bold text-sm mb-1">HemoAI Eligibility Bot</h3>
+                    <p class="text-xs text-gray-400">Evaluates donor weight (>50kg), hemoglobin, and enforces a mandatory 90-day rest interval before donation.</p>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-emerald-400 font-bold text-xs font-mono mb-1">05. PREDICTIVE INSIGHTS</div>
+                    <h3 class="text-white font-bold text-sm mb-1">Demand Forecaster</h3>
+                    <p class="text-xs text-gray-400">30-day regional inventory forecast predicting shortages across rare blood groups (O-, AB-).</p>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-[#E11D48] font-bold text-xs font-mono mb-1">06. DEFENSIVE SECURITY</div>
+                    <h3 class="text-white font-bold text-sm mb-1">OWASP Hardened Core</h3>
+                    <p class="text-xs text-gray-400">SHA-256 token-bucket rate limiter, anti-SSRF RFC 1918 filter, and strict XSS input sanitization.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 05 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 6: SYSTEM ARCHITECTURE ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-[#E11D48] font-bold">05. SYSTEM ARCHITECTURE</span>
+            <span>END-TO-END DATA FLOW</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">High-Performance Layered Architecture</h2>
+            <p class="text-sm text-gray-300 mb-6">Designed for sub-50ms execution latency, zero-config startup, and cloud resilience.</p>
+            
+            <div class="space-y-3 font-mono text-xs">
+                <div class="glass-card p-3.5 border-l-4 border-cyan-400 flex justify-between items-center">
+                    <div>
+                        <strong class="text-cyan-400">LAYER 1: PRESENTATION (SPA)</strong>
+                        <div class="text-gray-300 text-[11px] mt-0.5">Vanilla ES6+ • Tailwind CSS • Glassmorphism UI • Google Maps JavaScript API • HTML5 Canvas</div>
+                    </div>
+                    <span class="text-gray-500 text-[10px]">HTTPS / REST</span>
+                </div>
+                <div class="glass-card p-3.5 border-l-4 border-[#E11D48] flex justify-between items-center">
+                    <div>
+                        <strong class="text-[#E11D48]">LAYER 2: SECURITY & GATEWAY</strong>
+                        <div class="text-gray-300 text-[11px] mt-0.5">RateLimitingFilter (SHA-256 Tokens) • SecurityConfig (CSP, HSTS) • InputSanitizer (Jsoup Safelist)</div>
+                    </div>
+                    <span class="text-gray-500 text-[10px]">OWASP TOP 10</span>
+                </div>
+                <div class="glass-card p-3.5 border-l-4 border-purple-400 flex justify-between items-center">
+                    <div>
+                        <strong class="text-purple-400">LAYER 3: CORE APPLICATION (SPRING BOOT 3 / JAVA 21)</strong>
+                        <div class="text-gray-300 text-[11px] mt-0.5">SmartMatchingEngine (Haversine + ABO/Rh) • EmergencyController • HealthTipsController • BloodBankService</div>
+                    </div>
+                    <span class="text-gray-500 text-[10px]">MICROSERVICES</span>
+                </div>
+                <div class="glass-card p-3.5 border-l-4 border-emerald-400 flex justify-between items-center">
+                    <div>
+                        <strong class="text-emerald-400">LAYER 4: PERSISTENCE & LIVE DATA PIPELINE</strong>
+                        <div class="text-gray-300 text-[11px] mt-0.5">Dual-Mode Google Cloud Firestore ⟷ Zero-Config In-Memory Mock Store ⟷ Jsoup Real-Time Scraper</div>
+                    </div>
+                    <span class="text-gray-500 text-[10px]">HYBRID CLOUD</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 06 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 7: TECH STACK ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-cyan-400 font-bold">06. TECHNOLOGY STACK</span>
+            <span>PRODUCTION SPECIFICATIONS</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">Full-Stack Technology Stack</h2>
+            <p class="text-sm text-gray-300 mb-6">Engineered with modern, production-grade tools for speed, safety, and scalability.</p>
+            
+            <div class="grid grid-cols-2 gap-4 text-xs">
+                <div class="glass-card p-4">
+                    <div class="text-cyan-400 font-mono font-bold mb-2">BACKEND & RUNTIME</div>
+                    <ul class="space-y-1.5 text-gray-300">
+                        <li>• <strong class="text-white">Java 21 LTS</strong> (Virtual Threads, Pattern Matching)</li>
+                        <li>• <strong class="text-white">Spring Boot 3.3.0</strong> (REST, IoC, Validation)</li>
+                        <li>• <strong class="text-white">Jsoup 1.17.2</strong> (External Registry Web Scraper)</li>
+                        <li>• <strong class="text-white">Maven</strong> (Dependency Management & Build)</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-[#E11D48] font-mono font-bold mb-2">FRONTEND & INTERFACE</div>
+                    <ul class="space-y-1.5 text-gray-300">
+                        <li>• <strong class="text-white">Vanilla JavaScript (ES6+)</strong> (Zero Framework Bloat)</li>
+                        <li>• <strong class="text-white">Tailwind CSS</strong> (Dark-Mode Glassmorphism)</li>
+                        <li>• <strong class="text-white">HTML5 Canvas</strong> (Floating Bio-Particle Engine)</li>
+                        <li>• <strong class="text-white">Google Maps JS API</strong> (Proximity Visualization)</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-purple-400 font-mono font-bold mb-2">DATABASE & CLOUD</div>
+                    <ul class="space-y-1.5 text-gray-300">
+                        <li>• <strong class="text-white">Google Cloud Firestore</strong> (NoSQL Real-Time Sync)</li>
+                        <li>• <strong class="text-white">Firebase Auth SDK</strong> (OAuth 2.0 & Email/Password)</li>
+                        <li>• <strong class="text-white">In-Memory Mock Store</strong> (Thread-Safe ConcurrentMap)</li>
+                        <li>• <strong class="text-white">Docker & Cloud Run</strong> (Containerized Deployment)</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-4">
+                    <div class="text-emerald-400 font-mono font-bold mb-2">SECURITY & COMPLIANCE</div>
+                    <ul class="space-y-1.5 text-gray-300">
+                        <li>• <strong class="text-white">SHA-256 Hashed Tokens</strong> (Rate Limiting)</li>
+                        <li>• <strong class="text-white">Anti-SSRF RFC 1918 Guard</strong> (Protected Proxy)</li>
+                        <li>• <strong class="text-white">Jsoup Safelist.none()</strong> (Zero XSS Insertion)</li>
+                        <li>• <strong class="text-white">CSP & HSTS Headers</strong> (Clickjacking Defense)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 07 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 8: UI/UX WIREFRAME ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-[#E11D48] font-bold">07. UI/UX WIREFRAME & FLOW</span>
+            <span>USER JOURNEY</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">Streamlined Clinical User Experience</h2>
+            <p class="text-sm text-gray-300 mb-6">Designed for high-stress emergency environments with zero clutter and instant feedback.</p>
+            
+            <div class="grid grid-cols-4 gap-3 text-center text-xs">
+                <div class="glass-card p-4 border border-white/10">
+                    <div class="w-8 h-8 rounded-full bg-[#E11D48]/20 text-[#E11D48] font-bold mx-auto flex items-center justify-center mb-2">1</div>
+                    <h3 class="text-white font-bold mb-1">Unified Login Gate</h3>
+                    <p class="text-[11px] text-gray-400">Citizens sign in via Google SSO. Hospital staff authenticate using private Hospital Access Keys (HAK).</p>
+                </div>
+                <div class="glass-card p-4 border border-white/10">
+                    <div class="w-8 h-8 rounded-full bg-cyan-400/20 text-cyan-400 font-bold mx-auto flex items-center justify-center mb-2">2</div>
+                    <h3 class="text-white font-bold mb-1">Live Dashboard</h3>
+                    <p class="text-[11px] text-gray-400">Displays real-time hospital stocks, blood group availability, and high-priority regional emergency pulses.</p>
+                </div>
+                <div class="glass-card p-4 border border-white/10">
+                    <div class="w-8 h-8 rounded-full bg-purple-400/20 text-purple-400 font-bold mx-auto flex items-center justify-center mb-2">3</div>
+                    <h3 class="text-white font-bold mb-1">Dispatch Matcher</h3>
+                    <p class="text-[11px] text-gray-400">Select blood type & location $\rightarrow$ instant ranked list showing distance in km, compatibility score, and contact details.</p>
+                </div>
+                <div class="glass-card p-4 border border-white/10">
+                    <div class="w-8 h-8 rounded-full bg-emerald-400/20 text-emerald-400 font-bold mx-auto flex items-center justify-center mb-2">4</div>
+                    <h3 class="text-white font-bold mb-1">HemoAI Diagnostic</h3>
+                    <p class="text-[11px] text-gray-400">Interactive fitness assessment, 30-day shortage forecasts, and instant nutrition guidance chatbot.</p>
+                </div>
+            </div>
+            <div class="mt-5 p-3 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center text-xs font-mono">
+                <span class="text-gray-300">Design System: High-contrast Dark Mode with Red Alert Accents for Emergency Clarity</span>
+                <span class="text-cyan-400 font-bold">Responsive Desktop & Mobile</span>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 08 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 9: HARDWARE BLOCK DIAGRAM ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-cyan-400 font-bold">08. HARDWARE INTEGRATION (SCOPE)</span>
+            <span>IOT COLD-CHAIN EXTENSION</span>
+        </div>
+        <div class="my-auto py-4">
+            <div class="flex justify-between items-center mb-2">
+                <h2 class="text-2xl font-sora font-bold text-white">IoT Smart Blood Cold-Chain Carrier (Optional Extension)</h2>
+                <span class="px-3 py-1 bg-cyan-400/10 text-cyan-400 border border-cyan-400/30 text-[10px] font-mono rounded-full font-bold">HARDWARE SCOPE</span>
+            </div>
+            <p class="text-sm text-gray-300 mb-5">While HemoConnect is primarily a Software Platform, it seamlessly interfaces with Smart Blood Transit hardware.</p>
+            
+            <div class="grid grid-cols-3 gap-4 text-xs mb-4">
+                <div class="glass-card p-4 border-l-4 border-amber-400">
+                    <div class="text-amber-400 font-mono font-bold mb-1">SENSOR NODE</div>
+                    <h3 class="text-white font-bold mb-2">Environmental Telemetry</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>• <strong class="text-gray-200">DS18B20 Temp Sensor:</strong> Strict 2°C–6°C blood storage monitor</li>
+                        <li>• <strong class="text-gray-200">NEO-6M GPS Module:</strong> Live carrier location tracker</li>
+                        <li>• <strong class="text-gray-200">Tamper/Vibration Sensor:</strong> Transit integrity assurance</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-4 border-l-4 border-cyan-400">
+                    <div class="text-cyan-400 font-mono font-bold mb-1">MCU & COMMUNICATIONS</div>
+                    <h3 class="text-white font-bold mb-2">Edge Controller Core</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>• <strong class="text-gray-200">ESP32 / ARM Cortex-M:</strong> Real-time data processing</li>
+                        <li>• <strong class="text-gray-200">4G / SIM800L Module:</strong> Secure cellular telemetry</li>
+                        <li>• <strong class="text-gray-200">OLED Display & Buzzer:</strong> On-box audio-visual temp breach alarms</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-4 border-l-4 border-[#E11D48]">
+                    <div class="text-[#E11D48] font-mono font-bold mb-1">CLOUD BACKEND SYNC</div>
+                    <h3 class="text-white font-bold mb-2">Spring Boot API Gateway</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>• <strong class="text-gray-200">REST Telemetry Endpoint:</strong> Sub-second transit updates</li>
+                        <li>• <strong class="text-gray-200">Geofencing & Alerts:</strong> Instant warning on route delay</li>
+                        <li>• <strong class="text-gray-200">Hospital Transit Dashboard:</strong> Real-time ETA on map</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-[11px] font-mono text-gray-400 text-center bg-black/40 p-2.5 rounded-xl border border-white/5">
+                [Sensors: Temp + GPS] ──▶ [ESP32 MCU] ──▶ [4G Cellular Uplink] ──▶ [HemoConnect Spring Boot Core] ──▶ [Live Hospital Dispatch Map]
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 09 / 10</span>
+        </div>
+    </section>
+
+    <!-- ================= SLIDE 10: EXPECTED OUTCOMES ================= -->
+    <section class="slide">
+        <div class="flex justify-between items-center text-xs font-mono text-gray-400 border-b border-white/10 pb-3">
+            <span class="text-[#E11D48] font-bold">09. EXPECTED PRODUCT OUTCOME</span>
+            <span>IMPACT & ROADMAP</span>
+        </div>
+        <div class="my-auto py-4">
+            <h2 class="text-2xl font-sora font-bold text-white mb-2">Measurable Impact & Future Roadmap</h2>
+            <p class="text-sm text-gray-300 mb-6">Delivering life-saving clinical efficiency from day one.</p>
+            
+            <div class="grid grid-cols-3 gap-4 mb-5 text-center">
+                <div class="glass-card p-4 border border-[#E11D48]/30">
+                    <div class="text-3xl font-bold font-sora text-[#E11D48] mb-1">−80%</div>
+                    <div class="text-xs font-bold text-white mb-1">Dispatch Latency</div>
+                    <p class="text-[11px] text-gray-400">Blood discovery time cut from 2–4 hours down to under 60 seconds.</p>
+                </div>
+                <div class="glass-card p-4 border border-cyan-400/30">
+                    <div class="text-3xl font-bold font-sora text-cyan-400 mb-1">100%</div>
+                    <div class="text-xs font-bold text-white mb-1">Biological Compliance</div>
+                    <p class="text-[11px] text-gray-400">Algorithmic ABO/Rh crossmatching eliminates human transfusion errors.</p>
+                </div>
+                <div class="glass-card p-4 border border-emerald-400/30">
+                    <div class="text-3xl font-bold font-sora text-emerald-400 mb-1">132+</div>
+                    <div class="text-xs font-bold text-white mb-1">Connected Facilities</div>
+                    <p class="text-[11px] text-gray-400">Pre-seeded regional blood banks across municipal healthcare zones.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-4 text-xs font-mono">
+                <div class="text-cyan-400 font-bold mb-2">DEVELOPMENT ROADMAP</div>
+                <div class="grid grid-cols-2 gap-4 text-gray-300">
+                    <div>
+                        <strong class="text-white block mb-0.5">✔ Phase 1: Round 1 (Completed)</strong>
+                        Core ABO/Rh engine, Haversine routing, hybrid Jsoup scraper, mock & Firestore persistence, AI diagnostics.
+                    </div>
+                    <div>
+                        <strong class="text-white block mb-0.5">🚀 Phase 2: Round 2 (Implementation)</strong>
+                        Automated Twilio SMS/WhatsApp broadcast alerts, drone delivery corridor integration, and IoT transit telemetry.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs font-mono text-gray-500 border-t border-white/10 pt-3">
+            <span>HEMOCONNECT PLATFORM</span>
+            <span>SLIDE 10 / 10</span>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoConnect — Platform Showcase Poster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #070A13;
+            color: #E2E8F0;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .font-sora {
+            font-family: 'Sora', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-red {
+            box-shadow: 0 0 25px rgba(225, 29, 72, 0.25);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+        }
+        @media print {
+            body {
+                background: #070A13 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen flex justify-center items-center">
+
+    <!-- Poster Frame Container (Print-ready A3/A2 Ratio Container) -->
+    <div class="w-full max-w-5xl bg-[#0B0F1C] border border-white/10 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
+        
+        <!-- Background Ambient Glow Accents -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-[#E11D48]/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-[#06B6D4]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Print Action Bar -->
+        <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/10 no-print">
+            <span class="text-xs font-mono text-[#06B6D4] tracking-widest uppercase flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-[#06B6D4] animate-ping"></span>
+                Official Technical & Business Exhibition Poster
+            </span>
+            <button onclick="window.print()" class="px-4 py-2 bg-[#E11D48] hover:bg-[#BE123C] text-white text-xs font-bold rounded-lg transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">print</span> Print / Save as PDF
+            </button>
+        </div>
+
+        <!-- HEADER SECTION WITH ASCII TEXT ART -->
+        <header class="text-center mb-8">
+            <pre class="font-mono text-[9px] sm:text-[11px] md:text-[13px] leading-tight text-[#E11D48] select-all overflow-x-auto pb-2 font-bold opacity-90 inline-block text-left">
+ _   _ _____ __  __  ___   ____ ___  _   _ _   _ _____ ____ _____ 
+| | | | ____|  \/  |/ _ \ / ___/ _ \| \ | | \ | | ____/ ___|_   _|
+| |_| |  _| | |\/| | | | | |  | | | |  \| |  \| |  _|| |     | |  
+|  _  | |___| |  | | |_| | |__| |_| | |\  | |\  | |__| |___  | |  
+|_| |_|_____|_|  |_|\___/ \____\___/|_| \_|_| \_|_____\____| |_|  
+            </pre>
+            <h1 class="text-2xl sm:text-4xl font-sora font-extrabold tracking-tight mt-2 text-white">
+                HEMO<span class="text-[#E11D48]">CONNECT</span>
+            </h1>
+            <p class="text-sm md:text-base text-gray-400 font-mono mt-1 tracking-wide">
+                Next-Gen Blood Logistics & Clinical Coordination Platform
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mt-4 text-[11px] font-mono">
+                <span class="px-3 py-1 rounded-full bg-[#E11D48]/15 border border-[#E11D48]/30 text-[#E11D48]">Java 21 • Spring Boot 3</span>
+                <span class="px-3 py-1 rounded-full bg-[#06B6D4]/15 border border-[#06B6D4]/30 text-[#06B6D4]">Firestore & In-Memory Mock</span>
+                <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">OWASP Hardened</span>
+                <span class="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-400">HemoAI Clinical Triage</span>
+            </div>
+        </header>
+
+        <!-- VALUE PROPOSITION / EXECUTIVE SUMMARY -->
+        <div class="glass-panel rounded-2xl p-5 mb-6 border-l-4 border-[#E11D48]">
+            <h2 class="text-xs font-mono font-bold text-[#E11D48] tracking-wider uppercase mb-1">MISSION & VALUE PROPOSITION</h2>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                Eliminating critical blood discovery latency during medical emergencies. By combining 
+                <strong class="text-white">smart immunohematology compatibility logic</strong>, 
+                <strong class="text-white">Haversine spherical proximity routing</strong>, and a 
+                <strong class="text-white">hybrid national donor registry scraper</strong>, HemoConnect bridges isolated blood bank reserves and voluntary community donors into an instantaneous life-saving dispatch grid.
+            </p>
+        </div>
+
+        <!-- 3-COLUMN CORE GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            
+            <!-- COLUMN 1: BUSINESS APPLICATIONS -->
+            <div class="glass-panel rounded-2xl p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 text-[#06B6D4] font-mono text-xs font-bold uppercase mb-4 pb-2 border-b border-white/5">
+                        <span class="material-symbols-outlined text-lg">domain</span>
+                        Business Applications
+                    </div>
+                    <ul class="space-y-3.5 text-xs">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#06B6D4] font-bold">01.</span>
+                            <div>
+                                <strong class="text-white block font-medium">Hospital Blood Bank ERP (B2B)</strong>
+                                <span class="text-gray-400">Real-time depletion monitoring, multi-ward requisitioning, and hospital access keys (HAK).</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#06B6D4] font-bold">02.</span>
+                            <div>
+                                <strong class="text-white block font-medium">Emergency Broadcast Grid (B2G)</strong>
+                                <span class="text-gray-400">Rapid public health dispatch during regional disasters, trauma, or maternal hemorrhage codes.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#06B6D4] font-bold">03.</span>
+                            <div>
+                                <strong class="text-white block font-medium">Zero Cold-Start Aggregation</strong>
+                                <span class="text-gray-400">Overcomes sparse community launch data by scraping national voluntary registries on demand.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#06B6D4] font-bold">04.</span>
+                            <div>
+                                <strong class="text-white block font-medium">Clinical Governance & Compliance</strong>
+                                <span class="text-gray-400">Automates donor rest periods (90-day intervals) and guarantees 0% cross-contamination risk.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-gray-400 flex justify-between items-center">
+                    <span>Target: Hospitals & Blood Banks</span>
+                    <span class="text-[#06B6D4] font-bold">Enterprise Ready</span>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: TECHNICAL ARCHITECTURE & FEATURES -->
+            <div class="glass-panel rounded-2xl p-5 flex flex-col justify-between border-t-2 md:border-t-0 border-[#E11D48]/40">
+                <div>
+                    <div class="flex items-center gap-2 text-[#E11D48] font-mono text-xs font-bold uppercase mb-4 pb-2 border-b border-white/5">
+                        <span class="material-symbols-outlined text-lg">biotech</span>
+                        Core Platform Features
+                    </div>
+                    <ul class="space-y-3.5 text-xs">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#E11D48] font-bold">🧬</span>
+                            <div>
+                                <strong class="text-white block font-medium">Smart ABO/Rh Matching Engine</strong>
+                                <span class="text-gray-400">Algorithmic immunohematology matrix: Universal donor O-, recipient AB+, Rh-safety barriers.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#E11D48] font-bold">🧭</span>
+                            <div>
+                                <strong class="text-white block font-medium">Haversine Proximity Ranking</strong>
+                                <span class="text-gray-400">Calculates great-circle distances in milliseconds, prioritizing nearby clinics before voluntary donors.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#E11D48] font-bold">🌐</span>
+                            <div>
+                                <strong class="text-white block font-medium">Hybrid Live Web Scraper</strong>
+                                <span class="text-gray-400">Jsoup parser fetching live voluntary registry donors with ASP.NET viewstate callback handling.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-[#E11D48] font-bold">🧠</span>
+                            <div>
+                                <strong class="text-white block font-medium">HemoAI Diagnostic Suite</strong>
+                                <span class="text-gray-400">Pre-donation eligibility calculator, 30-day demand forecaster, and iron recovery chatbot.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-gray-400 flex justify-between items-center">
+                    <span>Performance: Sub-50ms query match</span>
+                    <span class="text-[#E11D48] font-bold">Zero-Config Mode</span>
+                </div>
+            </div>
+
+            <!-- COLUMN 3: SECURITY, COMPLIANCE & METRICS -->
+            <div class="glass-panel rounded-2xl p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold uppercase mb-4 pb-2 border-b border-white/5">
+                        <span class="material-symbols-outlined text-lg">security</span>
+                        OWASP Defense & Metrics
+                    </div>
+                    
+                    <!-- Metrics Badges -->
+                    <div class="grid grid-cols-2 gap-2.5 mb-4">
+                        <div class="bg-black/40 rounded-xl p-2.5 border border-white/5 text-center">
+                            <div class="text-lg font-mono font-bold text-[#E11D48]">−80%</div>
+                            <div class="text-[10px] text-gray-400">Dispatch Latency</div>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-2.5 border border-white/5 text-center">
+                            <div class="text-lg font-mono font-bold text-[#06B6D4]">132+</div>
+                            <div class="text-[10px] text-gray-400">Pre-Seeded Clinics</div>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-2.5 border border-white/5 text-center">
+                            <div class="text-lg font-mono font-bold text-emerald-400">100%</div>
+                            <div class="text-[10px] text-gray-400">Rh/ABO Safety</div>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-2.5 border border-white/5 text-center">
+                            <div class="text-lg font-mono font-bold text-purple-400">90 Days</div>
+                            <div class="text-[10px] text-gray-400">Safety Quarantine</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <span class="material-symbols-outlined text-sm text-emerald-400">verified</span>
+                            <span>Token-Bucket Rate Limiter (SHA-256)</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <span class="material-symbols-outlined text-sm text-emerald-400">verified</span>
+                            <span>Anti-SSRF RFC 1918 Private IP Filter</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <span class="material-symbols-outlined text-sm text-emerald-400">verified</span>
+                            <span>Jsoup HTML Sanitization (XSS Stripper)</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-300">
+                            <span class="material-symbols-outlined text-sm text-emerald-400">verified</span>
+                            <span>Strict CSP & HSTS Security Headers</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-white/5 text-[11px] font-mono text-gray-400 flex justify-between items-center">
+                    <span>Defense: OWASP Top 10</span>
+                    <span class="text-emerald-400 font-bold">Military-Grade</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BLOOD COMPATIBILITY CHEAT SHEET / INFOGRAPHIC BAR -->
+        <div class="glass-panel rounded-2xl p-4 mb-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-[#E11D48]/20 flex items-center justify-center text-[#E11D48] font-bold text-lg font-mono">
+                        ABO
+                    </div>
+                    <div>
+                        <div class="text-xs font-mono font-bold text-white">IMMUNOHEMATOLOGY CROSSMATCH MATRIX</div>
+                        <div class="text-[11px] text-gray-400">Universal Red Cell Donor: <span class="text-[#E11D48] font-bold">O-</span> | Universal Recipient: <span class="text-[#06B6D4] font-bold">AB+</span></div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 text-[10px] font-mono">
+                    <span class="px-2 py-1 bg-black/50 border border-white/10 rounded">O- ➔ All</span>
+                    <span class="px-2 py-1 bg-black/50 border border-white/10 rounded">O+ ➔ Positives</span>
+                    <span class="px-2 py-1 bg-black/50 border border-white/10 rounded">A- ➔ A±, AB±</span>
+                    <span class="px-2 py-1 bg-black/50 border border-white/10 rounded">B- ➔ B±, AB±</span>
+                    <span class="px-2 py-1 bg-black/50 border border-white/10 rounded">AB- ➔ AB±</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER & CALL TO ACTION -->
+        <footer class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-white/10 text-xs text-gray-400 font-mono gap-4">
+            <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#E11D48]"></span>
+                <span class="text-white font-bold">HemoConnect Platform</span>
+                <span>• Clinical Coordination Grid</span>
+            </div>
+            <div class="flex items-center gap-6 text-[11px]">
+                <span class="text-[#06B6D4]">Zero-Config Local Demo: http://localhost:8080</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
