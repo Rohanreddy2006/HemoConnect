@@ -114,6 +114,40 @@ This repository tracks progressive development across organized architectural mi
 
 ---
 
+### 8. REST API Controllers & Enterprise Security Infrastructure (Part 7)
+* **All 9 Spring Boot REST Controllers (`com.hemoconnect.controller`)**:
+  * **`DonorController`**: Voluntary donor registration, profile queries, and biological verification endpoints.
+  * **`BloodRequestController`**: Endpoints for creating standard and emergency blood requests, status tracking, and fulfillment updates.
+  * **`BloodBankController`**: Real-time blood bank listing, stock querying, and inventory mutation APIs.
+  * **`HospitalController`**: Clinical node management, hospital directory querying, and location updates.
+  * **`EmergencyController`**: High-priority triage routing, critical alert dispatches, and emergency broadcast triggers.
+  * **`AnalyticsController`**: Aggregated inventory metrics, shortage forecasting, and turnaround time reports.
+  * **`AdminController`**: Administrative controls, system stats, and registry purging capabilities.
+  * **`ConfigController`**: Dynamic platform configuration endpoint delivering runtime client environment parameters.
+  * **`HealthTipsController`**: Evidence-based donor health recommendations and pre/post donation guidelines.
+* **OWASP Security Hardening & Rate Limiting (`com.hemoconnect.config`)**:
+  * **`SecurityConfig`**: Spring Security configuration with stateless session management, CSRF hardening, and role-based endpoint routing (`ADMIN`, `HOSPITAL`, `CITIZEN`).
+  * **`RateLimitingFilter`**: Token-bucket sliding window rate limiter shielding endpoints against automated enumeration and DDoS attacks.
+  * **`WebConfig`**: Cross-Origin Resource Sharing (CORS) security configuration restricting origins to trusted clinical and development domains.
+* **Supabase PostgreSQL Schema (`supabase_schema.sql`)**:
+  * Production DDL script defining tables for 178+ Greater Hyderabad hospitals, coordinates, contact lines, and real-time inventory matrices with Row-Level Security (RLS) policies.
+
+---
+
+### 9. Glassmorphic Frontend UI & Production Deployment (Part 8)
+* **Modern Web Interface (`src/main/resources/static/`)**:
+  * **Light Medical Aesthetic**: Pure white cards (`#FFFFFF`) framed with high-visibility solid 2px slate borders (`#CBD5E1`) against a soft slate canvas (`#F1F5F9`) ensuring clear separation.
+  * **Vibrant Medical Red Palette**: High-contrast crimson red accents (`#DC2626` / `#B91C1C`) replacing pale tints for readability and urgency.
+  * **Voluntary Donor Match Radar**: Interactive Doppler radar sweep HUD with radial coordinate pins, blood group selector, and sector auto-correction.
+  * **Supabase Clinical Node Directory**: Interactive management grid for 178+ Hyderabad hospitals with real-time stock edits and Google Maps navigation.
+  * **Client Core Engines**: Modular clientside JavaScript architecture (`auth.js`, `api.js`, `ai.js`, `app.js`).
+* **Containerization & Presentation Assets**:
+  * **`Dockerfile`**: Multi-stage production container build packaging the Spring Boot application on an optimized OpenJDK 21 Alpine image.
+  * **`presentation.html`**: Interactive slide deck for medical board reviews and technical presentations.
+  * **`poster.html`**: High-resolution print-ready conference poster summarizing platform architecture and clinical impact.
+
+---
+
 ## 📂 Project Directory Structure
 
 ```
@@ -121,15 +155,32 @@ HemoConnect/
 ├── .env.example                                      # Environment variable template
 ├── .firebaserc                                       # Firebase project configuration
 ├── .gitignore                                        # Git ignore rules
+├── Dockerfile                                        # Multi-stage production Docker containerfile
 ├── firebase.json                                     # Firebase hosting configuration
 ├── pom.xml                                           # Maven dependencies (Spring Boot 3, Firebase, Jsoup, Jackson)
+├── poster.html                                       # Conference scientific poster
+├── presentation.html                                 # Technical slide deck & pitch presentation
 ├── README.md                                         # Project documentation
+├── supabase_schema.sql                               # PostgreSQL Supabase database schema
 └── src/
     └── main/
         ├── java/com/hemoconnect/
         │   ├── HemoConnectApplication.java           # Spring Boot bootstrap application entrypoint
         │   ├── config/
-        │   │   └── FirebaseConfig.java               # Firebase Admin SDK & Firestore configuration
+        │   │   ├── FirebaseConfig.java               # Firebase Admin SDK & Firestore configuration
+        │   │   ├── RateLimitingFilter.java           # Sliding-window rate limiter filter
+        │   │   ├── SecurityConfig.java               # Spring Security & OWASP access rules
+        │   │   └── WebConfig.java                    # CORS & HTTP filter configuration
+        │   ├── controller/                           # Spring Boot REST API Controllers
+        │   │   ├── AdminController.java              # Administrative operations controller
+        │   │   ├── AnalyticsController.java          # Analytics & shortage metrics controller
+        │   │   ├── BloodBankController.java          # Blood bank directory & stock controller
+        │   │   ├── BloodRequestController.java       # Request creation & triage controller
+        │   │   ├── ConfigController.java             # Public runtime configuration controller
+        │   │   ├── DonorController.java              # Donor registration & lookup controller
+        │   │   ├── EmergencyController.java          # Emergency dispatch controller
+        │   │   ├── HealthTipsController.java         # Donor health guidance controller
+        │   │   └── HospitalController.java           # Supabase hospital coordination controller
         │   ├── exception/
         │   │   └── GlobalExceptionHandler.java       # Centralized REST exception handler
         │   ├── model/                                # Core clinical domain entities
@@ -151,7 +202,16 @@ HemoConnect/
         │       └── InputSanitizer.java               # Jsoup-based XSS sanitization utility
         └── resources/
             ├── application.properties                # Spring Boot & client configuration
-            └── blood_banks_data.json                 # Comprehensive Hyderabad clinic dataset
+            ├── blood_banks_data.json                 # Comprehensive Hyderabad clinic dataset
+            └── static/                               # Modern Frontend SPA
+                ├── css/styles.css                    # High-contrast 2px border styles & animations
+                ├── images/                           # Clinical assets & scene illustrations
+                ├── js/                               # Platform frontend JavaScript modules
+                │   ├── ai.js                         # AI recommendation & demand prediction client
+                │   ├── api.js                        # Supabase & backend REST API client
+                │   ├── app.js                        # UI rendering & single-page application engine
+                │   └── auth.js                       # Firebase Authentication & session state
+                └── index.html                        # Application entrypoint & layout
 ```
 
 ---
